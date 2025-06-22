@@ -147,7 +147,7 @@ const Footer = () => {
               <li>+1-212-456-7890</li>
               <li>contact@ignitel.com</li>
             </ul>
-            <VisitCounter/>
+            {/* <VisitCounter/> */}
           </div>
       </div>
       {/* <div className='flex flex-col ml-[900px] pb-10 justify-end'>
