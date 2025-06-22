@@ -34,7 +34,7 @@ import AdminShitaladevi from './pages/Admin/AdminShitaladevi'
 import ManagementTeam from './pages/ManagementTeam/ManagementTeam'
 import AdminFamilyDashboard from './pages/Admin/AdminFamilyDashboard'
 import FamilyMembersView from './pages/Admin/FamilyMembersView'
-import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
+import PrivacyPolicy from './pages/Terms/PrivacyPolicy'
 
 
 const App = () => {
