@@ -6,28 +6,24 @@ const AdminSubscribers = () => {
   const [subs, setSubs] = useState([]);
 
   const fetchSubs = async () => {
-    // const res = await fetch("http://localhost:8081/api/subscribers");
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/subscribers`);
+    const res = await fetch("http://localhost:8081/api/subscribers");
     const data = await res.json();
     setSubs(data);
   };
 
 
     const downloadPDF = () => {
-    // window.open('http://localhost:8081/api/subscribers/export/pdf', '_blank');
-    window.open(`${import.meta.env.VITE_API_URL}/api/subscribers/export/pdf`, '_blank');
+    window.open('http://localhost:8081/api/subscribers/export/pdf', '_blank');
   };
 
   const downloadExcel = () => {
-    // window.open('http://localhost:8081/api/subscribers/export/excel', '_blank');
-    window.open(`${import.meta.env.VITE_API_URL}/api/subscribers/export/excel`, '_blank');
+    window.open('http://localhost:8081/api/subscribers/export/excel', '_blank');
   };
 
 
   const deleteSub = async (id) => {
     if (window.confirm("Delete this subscriber?")) {
-      // await fetch(`http://localhost:8081/api/subscribers/${id}`, { method: "DELETE" });
-      await fetch(`${import.meta.env.VITE_API_URL}/api/subscribers/${id}`, { method: "DELETE" });
+      await fetch(`http://localhost:8081/api/subscribers/${id}`, { method: "DELETE" });
       fetchSubs();
     }
   };

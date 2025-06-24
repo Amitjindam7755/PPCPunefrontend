@@ -47,8 +47,7 @@ const MarkandeyaAbhishek = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    // const response = await axios.post('http://localhost:8081/api/abhishek-bookings', formData, {
-    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/abhishek-bookings`, formData, {
+    const response = await axios.post('http://localhost:8081/api/abhishek-bookings', formData, {
       responseType: 'blob'
     });
 

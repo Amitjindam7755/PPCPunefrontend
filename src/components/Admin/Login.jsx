@@ -9,8 +9,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // const res = await axios.post('http://localhost:8081/api/admin/login', form);
-    const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/admin/login`, form);
+    const res = await axios.post('http://localhost:8081/api/admin/login', form);
     localStorage.setItem('token', res.data.token);
     navigate('/admin/dashboard');
   };

@@ -5,8 +5,7 @@ const AdminGallery = () => {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
-    // const res = await fetch('http://localhost:8081/api/gallery');
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/gallery`);
+    const res = await fetch('http://localhost:8081/api/gallery');
     const data = await res.json();
     setEvents(data);
   };
@@ -22,8 +21,7 @@ const AdminGallery = () => {
     const formData = new FormData();
     formData.append('image', file);
 
-    // await fetch('http://localhost:8081/api/gallery',
-      await fetch(`${import.meta.env.VITE_API_URL}/api/gallery`, {
+    await fetch('http://localhost:8081/api/gallery', {
       method: 'POST',
       body: formData
     });
@@ -33,8 +31,7 @@ const AdminGallery = () => {
   };
 
   const handleDelete = async (id) => {
-    // await fetch(`http://localhost:8081/api/gallery/${id}`, { method: 'DELETE' });
-    await fetch(`${import.meta.env.VITE_API_URL}/api/gallery/${id}`, { method: 'DELETE' });
+    await fetch(`http://localhost:8081/api/gallery/${id}`, { method: 'DELETE' });
     fetchEvents();
   };
 
@@ -49,8 +46,7 @@ const AdminGallery = () => {
         {events.map((event) => (
           <div key={event.id} className="relative">
             <img
-              // src={`http://localhost:8081/uploads/${event.image}`}
-              src={`${import.meta.env.VITE_API_URL}/uploads/${event.image}`}
+              src={`http://localhost:8081/uploads/${event.image}`}
               alt=""
               className="w-40 h-60 object-cover rounded"
             />

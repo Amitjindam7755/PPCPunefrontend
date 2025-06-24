@@ -18,8 +18,7 @@ import React, { useEffect, useState } from 'react';
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {events.map(event => {
-          // const imageUrl = `http://localhost:8081/magazines/${event.image}`;
-          const imageUrl = `${import.meta.env.VITE_API_URL}/magazines/${event.image}`;
+          const imageUrl = `http://localhost:8081/magazines/${event.image}`;
           return (
             <div
               key={event.id}

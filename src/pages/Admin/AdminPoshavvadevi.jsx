@@ -10,8 +10,7 @@ const AdminPoshavvadevi = () => {
 
   const fetchBookings = async () => {
     try {
-      // const res = await axios.get('http://localhost:8081/api/poshavvadevi-bookings');
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/poshavvadevi-bookings`);
+      const res = await axios.get('http://localhost:8081/api/poshavvadevi-bookings');
       setBookings(res.data);
     } catch (err) {
       console.error(err);
@@ -21,8 +20,7 @@ const AdminPoshavvadevi = () => {
   const deleteBooking = async (id) => {
     if (window.confirm("Are you sure you want to delete this booking?")) {
       try {
-        // await axios.delete(`http://localhost:8081/api/poshavvadevi-bookings/${id}`);
-        await axios.delete(`${import.meta.env.VITE_API_URL}/api/poshavvadevi-bookings/${id}`);
+        await axios.delete(`http://localhost:8081/api/poshavvadevi-bookings/${id}`);
         fetchBookings(); // Refresh data
       } catch (err) {
         console.error("Delete failed:", err);
@@ -31,8 +29,7 @@ const AdminPoshavvadevi = () => {
   };
 
   const downloadPDF = () => {
-    // axios.get('http://localhost:8081/api/poshavvadevi-bookings/pdf', { responseType: 'blob' })
-    axios.get(`${import.meta.env.VITE_API_URL}/api/poshavvadevi-bookings/pdf`, { responseType: 'blob' })
+    axios.get('http://localhost:8081/api/poshavvadevi-bookings/pdf', { responseType: 'blob' })
       .then(response => {
         const blob = new Blob([response.data], { type: 'application/pdf' });
         const url = window.URL.createObjectURL(blob);
@@ -44,8 +41,7 @@ const AdminPoshavvadevi = () => {
   };
 
   const downloadExcel = () => {
-    // axios.get('http://localhost:8081/api/poshavvadevi-bookings/excel', { responseType: 'blob' })
-    axios.get(`${import.meta.env.VITE_API_URL}/api/poshavvadevi-bookings/excel`, { responseType: 'blob' })
+    axios.get('http://localhost:8081/api/poshavvadevi-bookings/excel', { responseType: 'blob' })
       .then(response => {
         const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
         const url = window.URL.createObjectURL(blob);

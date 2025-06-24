@@ -5,8 +5,7 @@ const AdminMagazines = () => {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
-    // const res = await fetch('http://localhost:8081/api/magazines');
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/magazines`);
+    const res = await fetch('http://localhost:8081/api/magazines');
     const data = await res.json();
     setEvents(data);
   };
@@ -22,8 +21,7 @@ const AdminMagazines = () => {
     const formData = new FormData();
     formData.append('image', file);
 
-    // await fetch('http://localhost:8081/api/magazines', 
-    await fetch(`${import.meta.env.VITE_API_URL}/api/magazines`, {
+    await fetch('http://localhost:8081/api/magazines',  {
       method: 'POST',
       body: formData
     });
@@ -33,8 +31,7 @@ const AdminMagazines = () => {
   };
 
   const handleDelete = async (id) => {
-    // await fetch(`http://localhost:8081/api/magazines/${id}`, { method: 'DELETE' });
-    await fetch(`${import.meta.env.VITE_API_URL}/api/magazines/${id}`, { method: 'DELETE' });
+    await fetch(`http://localhost:8081/api/magazines/${id}`, { method: 'DELETE' });
     fetchEvents();
   };
 
@@ -49,8 +46,7 @@ const AdminMagazines = () => {
         {events.map((event) => (
           <div key={event.id} className="relative">
             <img
-              // src={`http://localhost:8081/magazines/${event.image}`}
-              src={`${import.meta.env.VITE_API_URL}/magazines/${event.image}`}
+              src={`http://localhost:8081/magazines/${event.image}`}
               alt=""
               className="w-40 h-60 object-cover rounded"
             />

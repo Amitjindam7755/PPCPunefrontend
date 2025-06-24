@@ -289,8 +289,7 @@ const MemberRegistration = () => {
 
   const onSubmit = async (data) => {
     try {
-      // await axios.post('http://localhost:8081/api/members/register', data);
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/members/register`, data);
+      await axios.post('http://localhost:8081/api/members/register', data);
       alert('Family registered successfully!');
     } catch (error) {
       console.error(error);
