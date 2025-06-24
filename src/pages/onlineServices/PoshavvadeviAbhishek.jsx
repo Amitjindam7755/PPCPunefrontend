@@ -21,7 +21,8 @@ const PoshavvadeviAbhishek = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post('http://localhost:8081/api/poshavvadevi-bookings', formData, {
+    // const response = await axios.post('http://localhost:8081/api/poshavvadevi-bookings', formData, {
+     const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/poshavvadevi-bookings`, formData, {
       responseType: 'blob'
     });
 

@@ -5,19 +5,22 @@ const AdminShitaladevi = () => {
   const [bookings, setBookings] = useState([]);
 
   const fetchBookings = async () => {
-    const res = await axios.get('http://localhost:8081/api/shitaladevi-bookings');
+    // const res = await axios.get('http://localhost:8081/api/shitaladevi-bookings');
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/shitaladevi-bookings`);
     setBookings(res.data);
   };
 
   const deleteBooking = async (id) => {
     if (window.confirm("Are you sure you want to delete this booking?")) {
-      await axios.delete(`http://localhost:8081/api/shitaladevi-bookings/${id}`);
+      // await axios.delete(`http://localhost:8081/api/shitaladevi-bookings/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/shitaladevi-bookings/${id}`);
       fetchBookings();
     }
   };
 
   const exportExcel = () => {
-    window.open('http://localhost:8081/api/shitaladevi-bookings/excel', '_blank');
+    // window.open('http://localhost:8081/api/shitaladevi-bookings/excel', '_blank');
+    window.open(`${import.meta.env.VITE_API_URL}/api/shitaladevi-bookings/excel`, '_blank');
   };
 
   useEffect(() => {

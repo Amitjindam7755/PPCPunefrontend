@@ -38,7 +38,8 @@ const ProfileCard = () => {
       if (profile_Photo) data.append("profile_photo", profile_Photo);
       if (janmapatrika) data.append("janmapatrika", janmapatrika);
 
-      const response = await axios.post("http://localhost:8081/api/profile/register", data, {
+      // const response = await axios.post("http://localhost:8081/api/profile/register", data, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/profile/register`, data, {
         headers: {
           "Content-Type": "multipart/form-data"
         }

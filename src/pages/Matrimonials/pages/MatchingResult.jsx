@@ -188,21 +188,24 @@ import axios from 'axios';
 import { io } from 'socket.io-client';
 import { useNavigate } from 'react-router-dom'; //  add this
 
-const socket = io('http://localhost:8081', {
+// const socket = io('http://localhost:8081', {
+const socket = io('https://ppc-server.onrender.com/', {
   cors: {
-    origin: 'http://localhost:5173',
+    // origin: 'http://localhost:5173',
+    origin: 'https://ppc-punefrontend.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE']
   }
 });
 
 const MatchingResult = () => {
   const [profiles, setProfiles] = useState([]);
-  const navigate = useNavigate(); // ✅ for navigation
+  const navigate = useNavigate(); //  for navigation
 
  
   const fetchProfiles = async () => {
     try {
-      const res = await axios.get('http://localhost:8081/api/profile/uploaded-profiles');
+      // const res = await axios.get('http://localhost:8081/api/profile/uploaded-profiles');
+       const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/profile/uploaded-profiles`);
       setProfiles(res.data);
     } catch (err) {
       console.error('Error fetching uploaded profiles:', err);
@@ -245,7 +248,8 @@ const MatchingResult = () => {
               <div className="flex flex-col items-center">
                 {profile.profile_photo ? (
                   <img
-                    src={`http://localhost:8081/${profile.profile_photo}`}
+                    // src={`http://localhost:8081/${profile.profile_photo}`}
+                    src={`${import.meta.env.VITE_API_URL}/${profile.profile_photo}`}
                     alt={profile.name}
                     className="w-32 h-32 object-cover rounded-full mb-4"
                   />
@@ -267,7 +271,8 @@ const MatchingResult = () => {
                 <p className="text-sm text-gray-600">About: {profile.about}</p>
                 {profile.biodata && (
                   <a
-                    href={`http://localhost:8081/${profile.biodata}`}
+                    // href={`http://localhost:8081/${profile.biodata}`}
+                    href={`${import.meta.env.VITE_API_URL}/${profile.biodata}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500 underline mt-2"

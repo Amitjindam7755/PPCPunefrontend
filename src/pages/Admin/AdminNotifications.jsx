@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:8081');
+// const socket = io('http://localhost:8081');
+const socket = io('https://ppc-server.onrender.com/');
 
 function AdminNotifications() {
   const [notifications, setNotifications] = useState([]);
@@ -11,7 +12,8 @@ function AdminNotifications() {
 
   const fetchNotifications = async () => {
     try {
-      const res = await axios.get('http://localhost:8081/notifications');
+      // const res = await axios.get('http://localhost:8081/notifications');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/notifications`);
       setNotifications(res.data);
     } catch (err) {
       console.error('Error fetching notifications:', err);
@@ -33,7 +35,8 @@ function AdminNotifications() {
 
   const handleAdd = async () => {
     if (!message.trim()) return;
-    await axios.post('http://localhost:8081/notifications', { message });
+    // await axios.post('http://localhost:8081/notifications', { message });
+    await axios.post(`${import.meta.env.VITE_API_URL}/notifications`, { message });
     setMessage('');
   };
 
@@ -43,14 +46,16 @@ function AdminNotifications() {
   };
 
   const handleUpdate = async () => {
-    await axios.put(`http://localhost:8081/notifications/${editId}`, { message });
+    // await axios.put(`http://localhost:8081/notifications/${editId}`, { message });
+    await axios.put(`${import.meta.env.VITE_API_URL}/notifications/${editId}`, { message });
     setEditId(null);
     setMessage('');
   };
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this notification?')) return;
-    await axios.delete(`http://localhost:8081/notifications/${id}`);
+    // await axios.delete(`http://localhost:8081/notifications/${id}`);
+    await axios.delete(`${import.meta.env.VITE_API_URL}/notifications/${id}`);
   };
 
   return (
