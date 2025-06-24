@@ -158,7 +158,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <p className="text-center text-sm">
-        Copyright 2025 © Pune Padmashali Panch Committee | Developed By Ignitel.com - All Rights Reserved.
+        Copyright 2025 © Pune Padmashali Panch Committee | Developed By AJ Group of companies Pvt Ltd - All Rights Reserved.
       </p>
     </div>
   );

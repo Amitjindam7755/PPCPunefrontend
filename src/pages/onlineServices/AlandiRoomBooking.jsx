@@ -161,7 +161,8 @@ const AlandiRoomBooking = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('http://localhost:8081/api/bookings', data, {
+      // const response = await axios.post('http://localhost:8081/api/bookings', data, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings`, data, {
         responseType: 'blob'
       });
 

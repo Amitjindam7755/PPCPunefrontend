@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:8081'); // 🔗 Connect to backend
+// const socket = io('http://localhost:8081'); // 🔗 Connect to backend
+const socket = io(`${import.meta.env.VITE_API_URL}`);
 
 const NewsItems = () => {
   const [latestNotification, setLatestNotification] = useState('');
@@ -11,7 +12,8 @@ const NewsItems = () => {
   // Fetch latest notification
   const fetchNotification = async () => {
     try {
-      const res = await axios.get('http://localhost:8081/notifications');
+    //  const res = await axios.get('http://localhost:8081/notifications');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/notifications`);
       setLatestNotification(res.data[0]?.message || '');
     } catch (err) {
       console.error('Error fetching notification:', err);

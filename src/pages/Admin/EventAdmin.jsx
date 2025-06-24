@@ -5,7 +5,8 @@ const EventAdmin = () => {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
-    const res = await fetch('http://localhost:8081/api/events');
+    // const res = await fetch('http://localhost:8081/api/events');
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/events`);
     const data = await res.json();
     setEvents(data);
   };
@@ -21,7 +22,8 @@ const EventAdmin = () => {
     const formData = new FormData();
     formData.append('image', file);
 
-    await fetch('http://localhost:8081/api/events', {
+    // await fetch('http://localhost:8081/api/events', {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/events`, {
       method: 'POST',
       body: formData
     });
@@ -31,7 +33,8 @@ const EventAdmin = () => {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:8081/api/events/${id}`, { method: 'DELETE' });
+    // await fetch(`http://localhost:8081/api/events/${id}`, { method: 'DELETE' });
+    await fetch(`${import.meta.env.VITE_API_URL}/api/events/${id}`, { method: 'DELETE' });
     fetchEvents();
   };
 
@@ -46,7 +49,8 @@ const EventAdmin = () => {
         {events.map((event) => (
           <div key={event.id} className="relative">
             <img
-              src={`http://localhost:8081/uploads/${event.image}`}
+              // src={`http://localhost:8081/uploads/${event.image}`}
+              src={`${import.meta.env.VITE_API_URL}/uploads/${event.image}`}
               alt=""
               className="w-40 h-60 object-cover rounded"
             />

@@ -46,7 +46,9 @@ const handleSubscribe = async (e) => {
   if (!subscriber) return alert("Please enter email or mobile");
 
   try {
-    const res = await fetch("http://localhost:8081/api/subscribers", {
+    // const res = await fetch("http://localhost:8081/api/subscribers", 
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/subscribers`,
+    {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ value: subscriber })

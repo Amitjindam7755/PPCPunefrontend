@@ -10,7 +10,8 @@ const ProtectedRoute = ({ children }) => {
     const verify = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:8081/api/admin/verify', {
+        // const res = await axios.get('http://localhost:8081/api/admin/verify', 
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/verify`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setIsAuth(res.data.valid);

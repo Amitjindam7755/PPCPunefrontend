@@ -19,7 +19,7 @@ const About = () => {
 
       {/* Content Box */}
       <div className="w-full max-w-2xl bg-gray-100 p-6 md:p-8 rounded-lg shadow-md text-gray-800">
-        <p className="text-base md:text-lg leading-relaxed whitespace-pre-line">
+        {/* <p className="text-base md:text-lg leading-relaxed whitespace-pre-line">
           पुण्यात <b>पुणे पद्मशाली समाजाबद्दल</b> बोलायचं झाल्यास, 
           हा समाज महाराष्ट्रात एक महत्वाचा घटक आहे. पुणे शहरात, इतर भागांप्रमाणे, 
           पद्मशाली समाज देखील आपली वेगळी ओळख जपतो. ते प्रामुख्याने विणकाम, 
@@ -48,6 +48,45 @@ const About = () => {
       <b>पुण्यात, पद्मशाली समाज एक महत्वाचा घटक आहे, 
       जो आपल्या पारंपरिक व्यवसायासोबतच आधुनिक शिक्षण आणि करिअरमध्येही यशस्वी होत आहे. 
       त्यांची सामाजिक आणि सांस्कृतिक बांधिलकी देखील उल्लेखनीय आहे.</b>         
+        </p> */}
+        <p className="text-base md:text-lg leading-relaxed whitespace-pre-line">
+          When speaking about the <b>Pune Padmashali community,</b> 
+          it is an important component of Maharashtra. In Pune city, 
+          like in other areas, the Padmashali community maintains its 
+          distinct identity. They are primarily involved in weaving, 
+          the textile industry, and related professions. 
+          The Padmashali community in Pune is known for their 
+          traditional arts and skills.
+          <br />
+            <b>Information about the Padmashali community in Pune:</b>
+          <br />
+            <b>Business:</b> 
+          The Padmashali community in Pune is mainly active in weaving, 
+          the textile industry, and related sectors.
+          <br />
+            <b>Social Life:</b> 
+          Like other communities, the Padmashali community in Pune is also 
+          actively involved in social and cultural events.
+          <br />
+            <b>Organizations:</b> 
+          There are several organizations of the Padmashali community in 
+          Pune that arrange various social and cultural activities for their members.
+          <br />
+            <b>Education and Careers:</b> 
+          The younger generation of the Padmashali community in Pune is making good 
+          progress in education and career development.
+          <br />
+            <b>Marriage:</b> 
+          There are many options for marriage within the Padmashali community in Pune, 
+          such as marriage organizations like "Vadhhu Var Suchak."
+          <br />
+            <b>Brief Description of the Padmashali Community in Pune:</b>
+          <br />
+            <b>In Pune, the Padmashali community is an important group 
+              that succeeds not only in traditional professions but also in 
+              modern education and careers. Their social and cultural ties 
+              are also noteworthy. 
+            </b>
         </p>
       </div>
 

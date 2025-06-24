@@ -7,12 +7,14 @@ const FamilyMembersView = () => {
   const [members, setMembers] = useState([]);
 
   const exportExcel = () => {
-  window.open(`http://localhost:8081/api/family-members/excel/${headId}`, '_blank');
+  // window.open(`http://localhost:8081/api/family-members/excel/${headId}`, '_blank');
+  window.open(`${import.meta.env.VITE_API_URL}/api/family-members/excel/${headId}`, '_blank');
 };
 
 
   useEffect(() => {
-    axios.get(`http://localhost:8081/api/family-members/${headId}`)
+    // axios.get(`http://localhost:8081/api/family-members/${headId}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/api/family-members/${headId}`)
       .then(res => setMembers(res.data))
       .catch(err => console.error('Error:', err));
   }, [headId]);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home/Home'
 import Gallery from './pages/Gallery/ImgGallery'
@@ -63,7 +63,7 @@ const App = () => {
           {/* <Route path='/matches' element={<MatchingResult/>} /> */}
 
     {/* Authentication dashboard */}
-    <Route path="/login" element={<Login />}/>
+    <Route path="/adminLogin" element={<Login />}/>
           <Route path="/register" element={<Register />} />
     <Route path='/admin/dashboard' element={
       <ProtectedRoute>
