@@ -7,8 +7,7 @@ const AdminFamilyDashboard = () => {
 
   const fetchData = async () => {
     try {
-      // const res = await axios.get('http://localhost:8081/api/heads');
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/heads`);
+      const res = await axios.get('http://localhost:8081/api/heads');
       setHeads(res.data);
     } catch (error) {
       console.error('Fetch error:', error);
@@ -18,8 +17,7 @@ const AdminFamilyDashboard = () => {
   const deleteHead = async (id) => {
     if (window.confirm("Are you sure you want to delete this record?")) {
       try {
-        // await axios.delete(`http://localhost:8081/api/heads/${id}`);
-        await axios.delete(`${import.meta.env.VITE_API_URL}/api/heads/${id}`);
+        await axios.delete(`http://localhost:8081/api/heads/${id}`);
         fetchData();
       } catch (error) {
         console.error('Delete error:', error);
@@ -28,8 +26,7 @@ const AdminFamilyDashboard = () => {
   };
 
   const exportExcel = () => {
-    // window.open('http://localhost:8081/api/heads/excel', '_blank');
-    window.open(`${import.meta.env.VITE_API_URL}/api/heads/excel`, '_blank');
+    window.open('http://localhost:8081/api/heads/excel', '_blank');
   };
   
 

@@ -17,8 +17,7 @@ const AdminMatrimonyCandidateProfile = () => {
         return;
       }
 
-      // const res = await axios.get('http://localhost:8081/api/profile/profiles',   {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/profile/profiles`,   {
+      const res = await axios.get('http://localhost:8081/api/profile/profiles',   {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfiles(res.data);
@@ -39,8 +38,7 @@ const AdminMatrimonyCandidateProfile = () => {
     if (!window.confirm('Are you sure you want to delete this profile?')) return;
     try {
       const token = localStorage.getItem('token');
-      // await axios.delete(`http://localhost:8081/api/profile/profiles/${id}`,   {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/api/profile/profiles/${id}`,   {
+      await axios.delete(`http://localhost:8081/api/profile/profiles/${id}`,   {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -59,8 +57,7 @@ const AdminMatrimonyCandidateProfile = () => {
   const handleUpload = async (profile) => {
     try {
       const token = localStorage.getItem('token');
-      // await axios.post(`http://localhost:8081/api/profile/upload-profile/${profile.id}`, {},   {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/profile/upload-profile/${profile.id}`, {},   {
+      await axios.post(`http://localhost:8081/api/profile/upload-profile/${profile.id}`, {},   {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('Profile uploaded successfully to Matches gallery!');
@@ -97,8 +94,7 @@ const AdminMatrimonyCandidateProfile = () => {
         data.append('janmapatrika', formData.janmapatrika);
       }
 
-      // await axios.put(`http://localhost:8081/api/profile/profiles/${editProfile.id}`, data, { 
-      await axios.put(`${import.meta.env.VITE_API_URL}/api/profile/profiles/${editProfile.id}`, data, { 
+      await axios.put(`http://localhost:8081/api/profile/profiles/${editProfile.id}`, data, { 
       headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -162,8 +158,7 @@ const AdminMatrimonyCandidateProfile = () => {
                     <td className="border px-2 py-1">
                       {profile.profile_photo ? (
                         <img
-                          // src={`http://localhost:8081/${profile.profile_photo}`}
-                          src={`${import.meta.env.VITE_API_URL}/${profile.profile_photo}`}
+                          src={`http://localhost:8081/${profile.profile_photo}`}
                           alt="Profile"
                           className="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded"
                         />
@@ -174,8 +169,7 @@ const AdminMatrimonyCandidateProfile = () => {
                     <td className="border px-2 py-1">
                       {profile.biodata ? (
                         <a
-                          // href={`http://localhost:8081/${profile.biodata}`}
-                          href={`${import.meta.env.VITE_API_URL}/${profile.biodata}`}
+                          href={`http://localhost:8081/${profile.biodata}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-500 underline text-xs sm:text-sm"
@@ -260,8 +254,7 @@ const AdminMatrimonyCandidateProfile = () => {
                     <span className="font-semibold text-sm">Profile Photo:</span>
                     {profile.profile_photo ? (
                       <img
-                        // src={`http://localhost:8081/${profile.profile_photo}`}
-                        src={`${import.meta.env.VITE_API_URL}/${profile.profile_photo}`}
+                        src={`http://localhost:8081/${profile.profile_photo}`}
                         alt="Profile"
                         className="w-16 h-16 object-cover rounded mt-1"
                       />
@@ -273,8 +266,7 @@ const AdminMatrimonyCandidateProfile = () => {
                     <span className="font-semibold text-sm">BioData:</span>
                     {profile.biodata ? (
                       <a
-                        // href={`http://localhost:8081/${profile.biodata}`}
-                        href={`${import.meta.env.VITE_API_URL}/${profile.biodata}`}
+                        href={`http://localhost:8081/${profile.biodata}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-500 underline ml-1 text-sm"

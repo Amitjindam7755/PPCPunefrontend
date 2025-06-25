@@ -21,8 +21,7 @@ const ShitaladeviAbhishek = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    // const response = await axios.post('http://localhost:8081/api/shitaladevi-bookings', formData, {
-    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/shitaladevi-bookings`, formData, {
+    const response = await axios.post('http://localhost:8081/api/shitaladevi-bookings', formData, {
       responseType: 'blob'
     });
 

@@ -8,19 +8,16 @@ const ContactTable = () => {
   const [editingContact, setEditingContact] = useState(null);
 
   const fetchContacts = async () => {
-    // const res = await axios.get('http://localhost:8081/api/contacts');
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/contacts`);
+    const res = await axios.get('http://localhost:8081/api/contacts');
     setContacts(res.data);
   }
 
   const downloadPDF = () => {
-    // window.open('http://localhost:8081/api/contacts/export/pdf', '_blank');
-    window.open(`${import.meta.env.VITE_API_URL}/api/contacts/export/pdf`, '_blank');
+    window.open('http://localhost:8081/api/contacts/export/pdf', '_blank');
   };
 
   const downloadExcel = () => {
-    // window.open('http://localhost:8081/api/contacts/export/excel', '_blank');
-    window.open(`${import.meta.env.VITE_API_URL}/api/contacts/export/excel`, '_blank');
+    window.open('http://localhost:8081/api/contacts/export/excel', '_blank');
   };
 
   useEffect(() => {
@@ -28,8 +25,7 @@ const ContactTable = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    // await axios.delete(`http://localhost:8081/api/contacts/${id}`);
-    await axios.delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`);
+    await axios.delete(`http://localhost:8081/api/contacts/${id}`);
     fetchContacts();
   };
 
@@ -38,8 +34,7 @@ const ContactTable = () => {
   };
 
   const handleUpdate = async (updatedContact) => {
-    // await axios.put(`http://localhost:8081/api/contacts/${updatedContact.id}`, updatedContact);
-    await axios.put(`${import.meta.env.VITE_API_URL}/api/contacts/${updatedContact.id}`, updatedContact);
+    await axios.put(`http://localhost:8081/api/contacts/${updatedContact.id}`, updatedContact);
     setEditingContact(null);
     fetchContacts();
   };

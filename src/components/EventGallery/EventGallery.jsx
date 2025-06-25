@@ -5,8 +5,7 @@ const EventGallery = () => {
   const [zoomedImage, setZoomedImage] = useState(null);
 
   useEffect(() => {
-    // fetch('http://localhost:8081/api/events')
-    fetch(`${import.meta.env.VITE_API_URL}/api/events`)
+    fetch('http://localhost:8081/api/events')
       .then(res => res.json())
       .then(data => setEvents(Array.isArray(data) ? data : []))
       .catch(err => console.error('Error fetching events:', err));
@@ -15,8 +14,7 @@ const EventGallery = () => {
   return (
     <div className="overflow-x-auto whitespace-nowrap p-4">
       {events.map(event => {
-        // const imageUrl = `http://localhost:8081/uploads/${event.image}`;
-        const imageUrl = `${import.meta.env.VITE_API_URL}/uploads/${event.image}`;
+        const imageUrl = `http://localhost:8081/uploads/${event.image}`;
         return (
           <img
             key={event.id}

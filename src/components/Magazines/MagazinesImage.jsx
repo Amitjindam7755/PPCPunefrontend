@@ -5,8 +5,7 @@ import React, { useEffect, useState } from 'react';
   const [zoomedImage, setZoomedImage] = useState(null);
 
   useEffect(() => {
-    // fetch('http://localhost:8081/api/magazines')
-    fetch(`${import.meta.env.VITE_API_URL}/api/magazines`)
+    fetch('http://localhost:8081/api/magazines')
       .then(res => res.json())
       .then(data => setEvents(Array.isArray(data) ? data : []))
       .catch(err => console.error('Error fetching events:', err));
@@ -18,8 +17,7 @@ import React, { useEffect, useState } from 'react';
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {events.map(event => {
-          // const imageUrl = `http://localhost:8081/magazines/${event.image}`;
-          const imageUrl = `${import.meta.env.VITE_API_URL}/magazines/${event.image}`;
+          const imageUrl = `http://localhost:8081/magazines/${event.image}`;
           return (
             <div
               key={event.id}

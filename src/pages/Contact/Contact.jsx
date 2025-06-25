@@ -13,8 +13,7 @@ const Contact = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try{
-        // await axios.post('http://localhost:8081/api/contacts',form);
-        await axios.post(`${import.meta.env.VITE_API_URL}/api/contacts`,form);
+        await axios.post('http://localhost:8081/api/contacts',form);
         alert('Message sent!');
         setForm({full_name:'',email:'',message:''});
       }catch (err) {

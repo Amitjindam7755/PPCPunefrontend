@@ -6,8 +6,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // await axios.post('http://localhost:8081/api/admin/register', form);
-     await axios.post(`${import.meta.env.VITE_API_URL}/api/admin/register`, form);
+    await axios.post('http://localhost:8081/api/admin/register', form);
     alert('Registered successfully');
   };
 
