@@ -329,9 +329,23 @@ const Navbar = () => {
                   </NavLink>
                 ) : (
                   <>
-                    <span className="block py-2 font-semibold underline">
+                  <NavLink
+                      to={item.path}
+                      className={({ isActive }) =>
+                        `block py-2 ${
+                          isActive || currentPath === item.path
+                            ? 'font-bold underline'
+                            : 'hover:underline'
+                        }`
+                      }
+                      onClick={() => setMenuOpen(false)}
+                    >
                       {t(item.name)}
-                    </span>
+                  </NavLink>
+
+                    {/* <span className="block py-2 font-semibold underline">
+                      {t(item.name)}
+                    </span> */}
                     <ul className="space-y-2">
                       {/* {item.children.map((child) => (
                         <li key={child.name}>
@@ -349,7 +363,8 @@ const Navbar = () => {
                       {child.path ? (
                         <NavLink
                           to={child.path}
-                          className="block text-sm text-white hover:underline"
+                          className={({isActive}) => `block text-sm text-white ${isActive || currentPath === child.path ? 'font-bold underline' : 'hover:underline'}`
+                         }
                           onClick={() => setMenuOpen(false)}
                         >
                           {t(child.name)}
