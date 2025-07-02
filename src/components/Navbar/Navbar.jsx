@@ -128,7 +128,7 @@
 
 
 
-
+// WORKING
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'; // Mobile menu icons
@@ -140,15 +140,21 @@ const Navbar = () => {
   const currentPath = location.pathname;
   const { t, i18n } = useTranslation();
 
+  const toTitleCase = (str) => {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+};
+
+
   const menuItems = [
     { name: 'Home', path: '/' },
     {
-          name: 'Abous Us',
+          name: 'About',
           path: '/about',
           dropdown: true,
           // viewOnly: true,
           children: [
-            { name: 'Pune Shahar Padmashali Yuvajan Sangham' },
+            { name: 'Pune Shahar Padmashali Yuvajan Sangham'},
             { name: 'Bhavana Rushi Senior Citizens Club' },
             { name: 'Senior Counselling Club' },
             { name: 'Padmashali Vadhu Var Suchak Mandal' },
@@ -212,15 +218,10 @@ const Navbar = () => {
         </div>
 
         {/* Language Selector */}
-        {/* <select onChange={(e) => i18n.changeLanguage(e.target.value)} value={i18n.language}>
+        <select onChange={(e) => i18n.changeLanguage(e.target.value)} value={i18n.language}>
           <option value="en">English</option>
-          <option value="hi">हिंदी</option>
           <option value="mr">मराठी</option>
-          <option value="te">తెలుగు</option>
-          <option value="kn">ಕನ್ನಡ</option>
-          <option value="ta">தமிழ்</option>
-          <option value="gu">ગુજરાતી</option>
-        </select> */}
+        </select>
 
         {/* Mobile Toggle Button */}
         <div className="md:hidden">
@@ -246,7 +247,8 @@ const Navbar = () => {
                     }`
                   }
                 >
-                  {t(item.name).toUpperCase()}
+                  {/* {t(item.name).toUpperCase()} */}
+                  {toTitleCase(t(item.name))}
                 </NavLink>
               ) : (
                 <>
@@ -263,7 +265,8 @@ const Navbar = () => {
                       }`
                     }
                   >
-                    {t(item.name).toUpperCase()}
+                    {/* {t(item.name).toUpperCase()} */}
+                    {toTitleCase(t(item.name))}
                   </NavLink>
 
                   
@@ -372,4 +375,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

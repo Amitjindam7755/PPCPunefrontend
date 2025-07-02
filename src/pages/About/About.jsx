@@ -9,7 +9,7 @@ const About = () => {
 
 
   return (
-    <div className="bg-amber-500 min-h-screen flex flex-col items-center justify-center py-10 px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center py-10 px-4">
        {/* Page Title */}     
         <h3 className="flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold text-red-800 mb-6">
           <Flower />
@@ -18,7 +18,7 @@ const About = () => {
         </h3>
 
       {/* Content Box */}
-      <div className="w-full max-w-2xl bg-gray-100 p-6 md:p-8 rounded-lg shadow-md text-gray-800">
+      <div className="w-full max-w-3xl bg-gray-100 p-6 md:p-8 rounded-lg shadow-md text-gray-800">
         {/* <p className="text-base md:text-lg leading-relaxed whitespace-pre-line">
           पुण्यात <b>पुणे पद्मशाली समाजाबद्दल</b> बोलायचं झाल्यास, 
           हा समाज महाराष्ट्रात एक महत्वाचा घटक आहे. पुणे शहरात, इतर भागांप्रमाणे, 
@@ -49,7 +49,7 @@ const About = () => {
       जो आपल्या पारंपरिक व्यवसायासोबतच आधुनिक शिक्षण आणि करिअरमध्येही यशस्वी होत आहे. 
       त्यांची सामाजिक आणि सांस्कृतिक बांधिलकी देखील उल्लेखनीय आहे.</b>         
         </p> */}
-        <p className="text-base md:text-lg leading-relaxed whitespace-pre-line">
+        {/* <p className="text-base md:text-lg leading-relaxed whitespace-pre-line">
           When speaking about the <b>Pune Padmashali community,</b> 
           it is an important component of Maharashtra. In Pune city, 
           like in other areas, the Padmashali community maintains its 
@@ -87,9 +87,14 @@ const About = () => {
               modern education and careers. Their social and cultural ties 
               are also noteworthy. 
             </b>
-        </p>
-      </div>
+        </p>*/}
+      
+        <p
+          className="text-md text-gray-700"
+          dangerouslySetInnerHTML={{ __html: t('AboutUsParagraph') }}
+        ></p>
 
+      </div> 
     </div>
 
   );

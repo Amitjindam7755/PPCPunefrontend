@@ -173,11 +173,14 @@
 
 import { div, image } from 'framer-motion/client';
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 const ManagementTeam = () => {
 
+  const {t} = useTranslation();
+
   const members = [
-  { name: "श्री रवींद्र महादेव रच्चा", role: "सरपंच", image:'/members/Amit.jpg' },
+  { name: "श्री रवींद्र महादेव रच्चा", role: "सरपंच", image:'/members/MemberPhoto.jpg' },
   { name: "श्री नंदकुमार गंगादास कुंदन", role: "विश्वस्त" },
   { name: "श्री संजय शिवाजी चिलका", role: "विश्वस्त" },
   { name: "श्री ज्ञानेश्वर रामचंद्र बोड्डू", role: "चिटणीस" },
@@ -270,9 +273,9 @@ const legalAdvisors = [
 ];
 
   return (
-      <div className='bg-amber-500'>
+      <div>
         <div>
-        <h1 className='flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold text-red-800 mb-6'>Committee Members</h1>
+        <h1 className='flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold text-red-800 mb-6 mt-4'>{t('Committee Members')}</h1>
         <br />
         <h2 className='flex items-center justify-center py-2 text-red-800 font-semibold text-xl'>विश्वस्त</h2>
         <div className='grid grid-cols-1 md:grid-cols-5 gap-2 text-center text-lg'>

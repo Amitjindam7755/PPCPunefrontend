@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { io } from 'socket.io-client';
+import { useTranslation } from 'react-i18next';
 
 const socket = io('http://localhost:8081'); // 🔗 Connect to backend
 
 const NewsItems = () => {
   const [latestNotification, setLatestNotification] = useState('');
+  const {t} = useTranslation();
 
   // Fetch latest notification
   const fetchNotification = async () => {
@@ -41,10 +43,10 @@ const NewsItems = () => {
   return (
     <div className="w-full bg-red-800 text-white flex items-center px-3 py-2">
       <span className="news-label text-yellow-400 font-semibold whitespace-nowrap pr-3">
-        Updates & Notification &gt;&gt;&nbsp;
+        {t('Updates & Notification')} &gt;&gt;&nbsp;
       </span>
       <marquee behavior="scroll" direction="left" className="text-sm md:text-base">
-        {latestNotification || 'No notifications available.'}
+        {latestNotification || t('No notifications available.')}
       </marquee>
     </div>
   );

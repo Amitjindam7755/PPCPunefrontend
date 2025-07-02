@@ -298,12 +298,12 @@ const MemberRegistration = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="p-6 max-w-7xl mx-auto bg-amber-500">
+    <form onSubmit={handleSubmit(onSubmit)} className="p-4 sm:p-6 max-w-5xl mx-auto bg-gray-50 rounded shadow">
 
       <h1 className="text-2xl font-bold text-center mb-4 text-red-800">Family Registration Form</h1>
       <h2 className="text-xl font-semibold text-red-800">Head of the Family</h2>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {[
           ['First Name', 'firstName'],
           ['Middle Name', 'middleName'],
@@ -351,7 +351,7 @@ const MemberRegistration = () => {
         <div key={item.id} className="border bg-white p-4 rounded mb-4">
           <div className="flex justify-between">
             <h3 className="font-semibold">Member {index + 1}</h3>
-            <button type="button" onClick={() => remove(index)} className="text-white w-[70px]">Delete</button>
+            <button type="button" onClick={() => remove(index)} className="text-white w-[70px] h-[30px] mb-5">Delete</button>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             {[
@@ -400,9 +400,9 @@ const MemberRegistration = () => {
       <div className="flex gap-4 mt-4">
         <button type="button" onClick={() => append({
           name: '', fatherName: '', motherName: '', surname: '', dob: null, age: '', sex: '', education: '', occupation: '', status: '', workAddress: '', whatsapp: '', area: '', relation: ''
-        })} className="bg-blue-600 w-[150px] text-white px-4 py-2 rounded hover:bg-blue-700">Add Member</button>
+        })} className="bg-blue-600 w-[135px] h-[40px] text-white px-4 py-2 rounded hover:bg-blue-700">Add Member</button>
 
-        <button type="submit" className="bg-green-600 w-[150px] text-white px-4 py-2 rounded hover:bg-green-700">Submit</button>
+        <button type="submit" className="bg-green-600 w-[135px] h-[40px] text-white px-4 py-2 rounded hover:bg-green-700">Submit</button>
       </div>
     </form>
   );

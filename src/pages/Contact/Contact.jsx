@@ -22,7 +22,7 @@ const Contact = () => {
       }
     };
     return (
-    <section className="contact bg-amber-500">
+    <section className="contact min-h-screen justify-center items-center flex p-4">
        <form onSubmit={handleSubmit}>
         <h2>Contact Form</h2>
         <div className="input-box">

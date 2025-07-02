@@ -76,7 +76,7 @@ const handleSubscribe = async (e) => {
         <div className="w-full overflow-hidden">
           <Slider {...settings}>
             {slides.map((slide) => (
-              <div key={slide.id} className="flex justify-center items-center h-[400px] bg-white">
+              <div key={slide.id} className="flex justify-center items-center w-[1000px] h-[400px] bg-gray-50 rounded-lg">
                 <img
                   src={slide.image}
                   alt={slide.alt}
@@ -88,7 +88,7 @@ const handleSubscribe = async (e) => {
         </div>
 
         {/* Text content in the middle */}
-        <div className="w-full md:w-1/2 mt-6 md:mt-0 px-2 md:px-6  text-start md:text-end whitespace-normal break-words">
+        <div className="w-full md:w-1/2 mt-6 md:mt-0 px-2 md:px-6  text-start md:text-end whitespace-normal break-words bg-gray-50">
           <div className="w-full overflow-hidden">
               <Slider
                 vertical={true}
@@ -113,7 +113,8 @@ const handleSubscribe = async (e) => {
           </div>
         </div>
       </div>
-
+                <br />
+                <br />
       {/* Upcoming Events Section */}
  <div className="text-center py-6 mt-10 bg-purple-50 ">
         <h4 className="text-xl font-semibold text-purple-800">Upcoming Events... (Ex. Vadhu Var Melava, Sports, Any other activites etc..)</h4>

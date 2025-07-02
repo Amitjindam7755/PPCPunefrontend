@@ -35,12 +35,21 @@ import ManagementTeam from './pages/ManagementTeam/ManagementTeam'
 import AdminFamilyDashboard from './pages/Admin/AdminFamilyDashboard'
 import FamilyMembersView from './pages/Admin/FamilyMembersView'
 import PrivacyPolicy from './pages/Terms/PrivacyPolicy'
+import AnimatedBackground from './components/Animation/AnimatedBackground'
+// import ConfettiParty from './components/Animation/ConfettiParty'
+import { useLocation } from 'react-router-dom'
+
 
 
 const App = () => {
+
+  const location = useLocation();
+  const showFooter = location.pathname === '/' || location.pathname === '/contact'
+
    return (
     <>
-    <div className='app'>
+    <AnimatedBackground/>
+    <div style={{position:"relative", zIndex: 1}}>
       <Navbar/>
         <Routes>
           {/* <Route path='/admin' element={<Adminauth/>}/> */}
@@ -87,8 +96,8 @@ const App = () => {
      </Route> 
      <Route path="/admin/family/:headId" element={<FamilyMembersView/>} />
       </Routes>
-    </div>
-     <Footer/>    
+    </div> 
+    {showFooter && <Footer/>}           
      </>
      
   )

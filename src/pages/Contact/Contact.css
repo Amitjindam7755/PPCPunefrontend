@@ -8,7 +8,7 @@
 }
 
 form{
-    max-width: 600px;
+    max-width: 450px;
     width: 100%;
     background: #fff;
     padding: 25px ;
@@ -55,7 +55,7 @@ form .input-box{
 
 form button{
     width: 30%;
-    height: 50px;
+    height: 36px;
     background: rgb(180, 54, 54);
     border: none;
     color: white;

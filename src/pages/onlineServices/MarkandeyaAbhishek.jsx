@@ -78,8 +78,8 @@ const MarkandeyaAbhishek = () => {
 
 
   return (
-    <div className="bg-amber-500 min-h-screen flex items-center justify-center">
-      <div className="bg-amber-500 p-8 rounded-lg shadow-lg max-w-lg w-full">
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="bg-gray-50 p-8 rounded-lg shadow-lg max-w-lg w-full">
         <h2 className="text-2xl font-bold text-center text-red-900 mb-6">Markandeya Abhishek Booking</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -89,7 +89,7 @@ const MarkandeyaAbhishek = () => {
             value={formData.fullName}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 h-[35px] border rounded"
           />
           <input
             type="email"
@@ -98,7 +98,7 @@ const MarkandeyaAbhishek = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 h-[35px] border rounded"
           />
           <input
             type="tel"
@@ -107,7 +107,7 @@ const MarkandeyaAbhishek = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 h-[35px] border rounded"
           />
           <input
             type="date"
@@ -115,7 +115,7 @@ const MarkandeyaAbhishek = () => {
             value={formData.pujaDate}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 h-[35px] border rounded"
           />
           <input
             type="time"
@@ -123,13 +123,13 @@ const MarkandeyaAbhishek = () => {
             value={formData.pujaTime}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 h-[35px] border rounded"
           />
           <select
             name="pujaType"
             value={formData.pujaType}
             onChange={handleChange}
-            className="w-full p-3 border rounded"
+            className="w-full p-3 h-[38px] border rounded"
           >
             <option value="Rudrabhishek">Rudrabhishek</option>
             <option value="Laghu Rudra">Laghu Rudra</option>
@@ -143,7 +143,7 @@ const MarkandeyaAbhishek = () => {
             value={formData.gotra}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 h-[35px] border rounded"
           />
 
           <input
@@ -152,7 +152,7 @@ const MarkandeyaAbhishek = () => {
             min="1"
             value={formData.participants}
             onChange={handleChange}
-            className="w-full p-3 border rounded"
+            className="w-full p-3 h-[35px] border rounded"
             placeholder="No. of Participants"
           />
           <textarea
@@ -165,7 +165,7 @@ const MarkandeyaAbhishek = () => {
           />
           <button
             type="submit"
-            className="w-full bg-orange-600 text-white p-3 rounded hover:bg-orange-700"
+            className="w-[100px] h-[40px] bg-orange-600 text-white p-3 rounded text-center hover:bg-orange-700"
           >
             Book Puja
           </button>

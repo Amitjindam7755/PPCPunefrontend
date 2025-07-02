@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
   const MagazinesImage = () => {
   const [events, setEvents] = useState([]);
   const [zoomedImage, setZoomedImage] = useState(null);
+
+  const {t} = useTranslation();
 
   useEffect(() => {
     fetch('http://localhost:8081/api/magazines')
@@ -12,8 +15,8 @@ import React, { useEffect, useState } from 'react';
   }, []);
 
   return (
-    <div className="p-6 bg-[#f59e0b] min-h-screen">
-      <h2 className="text-3xl font-bold text-center text-red-800 mb-6">Magazines</h2>
+    <div className="p-6 min-h-screen">
+      <h2 className="text-3xl font-bold text-center text-red-800 mb-6">{t('Magazines')}</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {events.map(event => {

@@ -179,8 +179,8 @@ const AlandiRoomBooking = () => {
   };
 
   return (
-    <div className='bg-amber-500'>
-      <div className="max-w-xl mx-auto p-5 rounded-2xl shadow-md">
+    <div>
+      <div className="max-w-lg mx-auto p-8 rounded-lg shadow-lg bg-gray-50">
         <h2 className="text-2xl font-bold text-center mb-6 text-red-900">Room Booking</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           
@@ -189,7 +189,7 @@ const AlandiRoomBooking = () => {
               type="text"
               placeholder="Full Name"
               {...register('fullName')}
-              className="w-full p-3 border rounded"
+              className="w-full p-3 h-[35px] border rounded"
             />
             <p className="text-red-600 text-sm">{errors.fullName?.message}</p>
           </div>
@@ -199,7 +199,7 @@ const AlandiRoomBooking = () => {
               type="email"
               placeholder="Email Address"
               {...register('email')}
-              className="w-full p-3 border rounded"
+              className="w-full p-3 h-[35px] border rounded"
             />
             <p className="text-red-600 text-sm">{errors.email?.message}</p>
           </div>
@@ -209,7 +209,7 @@ const AlandiRoomBooking = () => {
               type="tel"
               placeholder="Mobile Number"
               {...register('phone')}
-              className="w-full p-3 border rounded"
+              className="w-full p-3 h-[35px] border rounded"
             />
             <p className="text-red-600 text-sm">{errors.phone?.message}</p>
           </div>
@@ -219,7 +219,7 @@ const AlandiRoomBooking = () => {
               <input
                 type="date"
                 {...register('checkIn')}
-                className="w-full p-3 border rounded"
+                className="w-full p-3 h-[35px] border rounded"
               />
               <p className="text-red-600 text-sm">{errors.checkIn?.message}</p>
             </div>
@@ -228,14 +228,15 @@ const AlandiRoomBooking = () => {
               <input
                 type="date"
                 {...register('checkOut')}
-                className="w-full p-3 border rounded"
+                className="w-full p-3 h-[35px] border rounded"
               />
               <p className="text-red-600 text-sm">{errors.checkOut?.message}</p>
             </div>
           </div>
 
-          <div>
-            <select {...register('roomType')} className="w-full p-3 border rounded">
+          <div className="flex flex-col md:flex-row gap-4">
+          <div className='w-full'>
+            <select {...register('roomType')} className="w-full p-3 h-[41px] border rounded">
               <option value="">Select Room Type</option>
               <option value="standard">Standard Room</option>
               <option value="deluxe">Deluxe Room</option>
@@ -244,16 +245,17 @@ const AlandiRoomBooking = () => {
             <p className="text-red-600 text-sm">{errors.roomType?.message}</p>
           </div>
 
-          <div>
+          <div className='w-full'>
             <input
               type="number"
               min="1"
               placeholder="Number of Guests"
               {...register('guests')}
-              className="w-full p-3 border rounded"
+              className="w-full p-3 h-[35px] border rounded"
             />
             <p className="text-red-600 text-sm">{errors.guests?.message}</p>
           </div>
+        </div>
 
           <div>
             <textarea
@@ -267,7 +269,7 @@ const AlandiRoomBooking = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700"
+            className="w-[61px] bg-blue-600 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
           >
             Book Now
           </button>

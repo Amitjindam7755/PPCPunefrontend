@@ -1,19 +1,111 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
   const GalleryImages = () => {
   const [events, setEvents] = useState([]);
   const [zoomedImage, setZoomedImage] = useState(null);
+  const {t} = useTranslation();
+
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
+
+  const years = Array.from({length:10}, (_, i) => new Date().getFullYear() - i);
+  const months = Array.from({length: 12}, (_,i) => i + 1);
+
+    const fetchImages = () => {
+      const query = new URLSearchParams();
+      if(year) query.append('year', year);
+      if(month) query.append('month', month);
+
+      fetch(`http://localhost:8081/api/gallery?${query.toString()}`)
+       .then(res => res.json())
+       .then(data => setEvents(Array.isArray(data) ? data : []))
+       .catch(err => console.error('Error fetching events: ', err));
+    };
 
   useEffect(() => {
-    fetch('http://localhost:8081/api/gallery')
-      .then(res => res.json())
-      .then(data => setEvents(Array.isArray(data) ? data : []))
-      .catch(err => console.error('Error fetching events:', err));
+    // fetch('http://localhost:8081/api/gallery')
+    //   .then(res => res.json())
+    //   .then(data => setEvents(Array.isArray(data) ? data : []))
+    //   .catch(err => console.error('Error fetching events:', err));
+    fetchImages();
   }, []);
 
   return (
-    <div className="p-6 bg-[#f59e0b] min-h-screen">
-      <h2 className="text-3xl font-bold text-center text-red-800 mb-6">Images Gallery</h2>
+    <div className="p-6  min-h-screen">
+      <h2 className="text-3xl font-bold text-center text-red-800 mb-6">{t('Images Gallery')}</h2>
+  
+            {/* <div className="flex flex-col md:flex-row items-center justify-between mb-6 px-4">
+              <form onSubmit={(e) => { e.preventDefault(); fetchImages(); }} className="mb-6 flex flex-wrap gap-4 items-end justify-center">
+                <div>
+                  <label className="block text-white">Year</label>
+                  <select value={year} onChange={e => setYear(e.target.value)} className="p-2 rounded text-black">
+                    <option value="">All</option>
+                    {years.map(y => <option key={y} value={y}>{y}</option>)}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-white">Month</label>
+                  <select value={month} onChange={e => setMonth(e.target.value)} className="p-2 rounded text-black">
+                    <option value="">All</option>
+                    {months.map(m => <option key={m} value={m}>{m.toString().padStart(2, '0')}</option>)}
+                  </select>
+                </div>
+
+                <button type="submit" className="bg-white text-black px-4 py-2 rounded hover:bg-black hover:text-white">
+                  Filter
+                </button>
+              </form>
+
+              {/* Breadcrumb */}
+              {/* <div className="text-center text-white mb-4 text-lg">
+                Showing images for:
+                <span className="ml-2 font-bold text-yellow-200">
+                  {year || 'All Years'} {month && `> ${month.toString().padStart(2, '0')}`}
+                </span>
+              </div>
+            </div>  */}
+
+                  <div className="flex flex-col md:flex-row items-center justify-between mb-6 px-4">
+              {/* Filter Section - Left Side */}
+              <form
+                onSubmit={(e) => { e.preventDefault(); fetchImages(); }}
+                className="flex flex-wrap items-end gap-3 bg-gray-50 p-3 rounded-lg shadow max-w-full w-auto"
+              >
+                <div>
+                  <label className="block text-sm text-gray-700">Year</label>
+                  <select value={year} onChange={e => setYear(e.target.value)} className="p-1 rounded text-black text-sm">
+                    <option value="">All</option>
+                    {years.map(y => <option key={y} value={y}>{y}</option>)}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm text-gray-700">Month</label>
+                  <select value={month} onChange={e => setMonth(e.target.value)} className="p-1 rounded text-black text-sm">
+                    <option value="">All</option>
+                    {months.map(m => <option key={m} value={m}>{m.toString().padStart(2, '0')}</option>)}
+                  </select>
+                </div>
+
+                <button type="submit" className="bg-black text-white h-[30px] px-3 py-1 rounded hover:bg-red-600 text-sm">
+                  Filter
+                </button>
+              </form>
+
+              {/* Title Section - Right Side */}
+              <div className="mt-4 md:mt-0">
+                {/* <h2 className="text-2xl md:text-3xl font-bold text-red-800 text-center md:text-right">Images Gallery</h2> */}
+                <div className="text-right text-red-800 text-sm md:text-base">
+                  Showing images for:
+                  <span className="ml-1 font-semibold">
+                    {year || 'All Years'} {month && `> ${month.toString().padStart(2, '0')}`}
+                  </span>
+                </div>
+              </div>
+            </div>
+
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {events.map(event => {

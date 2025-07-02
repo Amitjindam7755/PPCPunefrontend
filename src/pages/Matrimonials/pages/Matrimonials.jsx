@@ -63,7 +63,7 @@ const Matrimonials = () => {
               name="profile_for"
               value={formData.profile_for}
               onChange={handleChange}
-              className="w-full p-2 rounded text-black"
+              className="w-full p-2 rounded text-black border"
               required
             >
               <option value="">Select</option>
@@ -85,7 +85,7 @@ const Matrimonials = () => {
               placeholder="someone@example.com"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 rounded text-black"
+              className="w-full p-2 rounded text-black border"
               required
             />
           </div>
@@ -99,7 +99,7 @@ const Matrimonials = () => {
                 name="mobile"
                 value={formData.mobile}
                 onChange={handleChange}
-                className="flex-1 p-2 rounded-r text-black min-w-0"
+                className="flex-1 p-2 rounded-r text-black min-w-0 border"
                 required
               />
             </div>
@@ -113,7 +113,7 @@ const Matrimonials = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full p-2 rounded text-black"
+              className="w-full p-2 rounded text-black border"
               required
             />
           </div>

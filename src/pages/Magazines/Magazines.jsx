@@ -3,7 +3,7 @@ import MagazinesImage from '../../components/Magazines/MagazinesImage'
 
 const Magazines = () => {
   return (
-    <div className='bg-amber-500'>
+    <div>
       <MagazinesImage/>
     </div>
   )
