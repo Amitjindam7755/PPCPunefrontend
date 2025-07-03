@@ -1,0 +1,64 @@
+.reveal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.corner {
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  background: #fff; /* cover color, can change to match your theme */
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  animation: slideTopLeft 1.5s forwards;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  animation: slideTopRight 1.5s forwards;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  animation: slideBottomLeft 1.5s forwards;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  animation: slideBottomRight 1.5s forwards;
+}
+
+@keyframes slideTopLeft {
+  to {
+    transform: translate(-100%, -100%);
+  }
+}
+
+@keyframes slideTopRight {
+  to {
+    transform: translate(100%, -100%);
+  }
+}
+
+@keyframes slideBottomLeft {
+  to {
+    transform: translate(-100%, 100%);
+  }
+}
+
+@keyframes slideBottomRight {
+  to {
+    transform: translate(100%, 100%);
+  }
+}
