@@ -275,9 +275,9 @@ const AlandiRoomBooking = () => {
 
           <button
             type="submit"
-            className="flex items-center gap-1 w-[130px] bg-blue-600 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
+            className="flex items-center gap-2 w-[130px] bg-blue-600 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
           >
-            {t('Book Now')}<SendHorizontal size={20} strokeWidth={1.5} />
+            <SendHorizontal size={20} strokeWidth={1.5} />{t('Book Now')}
           </button>
         </form>
       </div>

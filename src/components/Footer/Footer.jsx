@@ -136,10 +136,10 @@ const Footer = () => {
         </div>
         {/* Center Section: Navigation */}
         <div className="flex flex-col items-start gap-6">
-          <h2 className="text-white text-xl md:text-2xl font-semibold">PADMASHALI</h2>
+          <h2 className="text-white text-xl md:text-2xl font-semibold">{t('PADMASHALI')}</h2>
           <ul className="flex flex-col gap-3">
-            <li className="cursor-pointer hover:underline"><Link to="/">Home</Link></li>
-            <li className="cursor-pointer hover:underline"><Link to="/about">About Us</Link></li>
+            <li className="cursor-pointer hover:underline"><Link to="/">{t('Home')}</Link></li>
+            <li className="cursor-pointer hover:underline"><Link to="/about">{t('About Us')}</Link></li>
             <li className="cursor-pointer hover:underline"><Link to="/privacy-policy" className='underline block'>Privacy Policy</Link></li>
               <div id="google_translate_element"></div>
           </ul>
@@ -147,7 +147,7 @@ const Footer = () => {
 
         {/* Right Section: Contact Info */}
           <div className="flex flex-col items-start gap-6">
-            <h2 className="text-white text-xl md:text-2xl font-semibold">GET IN TOUCH</h2>
+            <h2 className="text-white text-xl md:text-2xl font-semibold">{t('GET IN TOUCH')}</h2>
             <ul className="flex flex-col gap-3">
               <li className="text-wrap">
                 {t('1124 Bhavani Peth, Shri Padmashali Vitthal Rakhumai Mandir, Padmashali Puram, Pune 411042.')}

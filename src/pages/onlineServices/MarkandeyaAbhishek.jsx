@@ -176,9 +176,9 @@ const {t} = useTranslation();
           />
           <button
             type="submit"
-            className="flex items-center gap-1 w-[130px] h-[40px] bg-orange-600 text-white p-3 rounded text-center hover:bg-orange-700"
+            className="flex items-center gap-2 w-[130px] h-[40px] bg-orange-600 text-white p-3 rounded text-center hover:bg-orange-700"
           >
-            {('Book Puja')}<SendHorizontal size={20} strokeWidth={1.5} />
+            <SendHorizontal size={20} strokeWidth={1.5} />{('Book Puja')}
           </button>
         </form>
       </div>
