@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,6 +19,8 @@ const ProfileCard = () => {
     height: '',
     about: ''
   });
+
+  const {t} = useTranslation();
 
   const [profile_Photo, setProfilePhoto] = useState(null);
   const [janmapatrika, setJanmapatrika] = useState(null);
@@ -63,21 +66,21 @@ const ProfileCard = () => {
           className="space-y-4 w-full bg-white p-4 sm:p-6 rounded shadow text-black"
         >
           <div>
-            <label className="block text-sm mb-1">Create Profile For</label>
+            <label className="block text-sm mb-1">{t('Create Profile For')}</label>
             <select name="profile_for" value={formData.profile_for} onChange={handleChange} required className="w-full p-2 rounded border">
-              <option value="">Profile For</option>
-              <option value="Self">Self</option>
-              <option value="Son">Son</option>
-              <option value="Daughter">Daughter</option>
-              <option value="Brother">Brother</option>
-              <option value="Sister">Sister</option>
-              <option value="Relative/Friend">Relative/Friend</option>
-              <option value="Marriage Bureau">Marriage Bureau</option>
+              <option value="">{t('Profile For')}</option>
+              <option value="Self">{t('Self')}</option>
+              <option value="Son">{t('Son')}</option>
+              <option value="Daughter">{t('Daughter')}</option>
+              <option value="Brother">{t('Brother')}</option>
+              <option value="Sister">{t('Sister')}</option>
+              <option value="Relative/Friend">{t('Relative/Friend')}</option>
+              <option value="Marriage Bureau">{t('Marriage Bureau')}</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Full Name</label>
+            <label className="block text-sm mb-1">{t('Full Name')}</label>
             <input
               type="text"
               name="name"
@@ -90,17 +93,17 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Gender</label>
+            <label className="block text-sm mb-1">{t('Gender')}</label>
             <select name="gender" value={formData.gender} onChange={handleChange} className="w-full p-2 rounded border" required>
-              <option value="">Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
+              <option value="">{t('Gender')}</option>
+              <option value="Male">{t('Male')}</option>
+              <option value="Female">{t('Female')}</option>
+              <option value="Other">{t('Other')}</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Email Address</label>
+            <label className="block text-sm mb-1">{t('Email Address')}</label>
             <input
               type="email"
               name="email"
@@ -113,7 +116,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Mobile No.</label>
+            <label className="block text-sm mb-1">{t('Mobile No.')}</label>
             <div className="flex">
               <span className="p-2 bg-gray-200 text-black rounded-l whitespace-nowrap">+91</span>
               <input
@@ -128,7 +131,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Date of Birth</label>
+            <label className="block text-sm mb-1">{t('Date of Birth')}</label>
             <input
               type="date"
               name="dob"
@@ -140,7 +143,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Religion</label>
+            <label className="block text-sm mb-1">{t('Religion')}</label>
             <input
               type="text"
               name="religion"
@@ -152,7 +155,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Caste</label>
+            <label className="block text-sm mb-1">{t('Caste')}</label>
             <input
               type="text"
               name="caste"
@@ -164,7 +167,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Occupation</label>
+            <label className="block text-sm mb-1">{t('Occupation')}</label>
             <input
               type="text"
               name="occupation"
@@ -176,7 +179,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Education</label>
+            <label className="block text-sm mb-1">{t('Education')}</label>
             <input
               type="text"
               name="education"
@@ -188,7 +191,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Location</label>
+            <label className="block text-sm mb-1">{t('Location')}</label>
             <input
               type="text"
               name="location"
@@ -200,7 +203,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Height</label>
+            <label className="block text-sm mb-1">{t('Height')}</label>
             <input
               type="text"
               name="height"
@@ -212,7 +215,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Profile Photo</label>
+            <label className="block text-sm mb-1">{t('Profile Photo')}</label>
             <input
               type="file"
               accept="image/*"
@@ -223,7 +226,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">BioData</label>
+            <label className="block text-sm mb-1">{t('BioData')}</label>
             <input
               type="file"
               accept=".jpg,.jpeg,.png,.pdf"
@@ -233,7 +236,7 @@ const ProfileCard = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">About Yourself</label>
+            <label className="block text-sm mb-1">{t('About Yourself')}</label>
             <textarea
               name="about"
               placeholder="About Yourself"

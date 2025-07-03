@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SendHorizontal } from 'lucide-react';
 import axios from 'axios';
 
 const MarkandeyaAbhishek = () => {
@@ -76,16 +78,18 @@ const MarkandeyaAbhishek = () => {
   }
 };
 
+const {t} = useTranslation();
+
 
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-gray-50 p-8 rounded-lg shadow-lg max-w-lg w-full">
-        <h2 className="text-2xl font-bold text-center text-red-900 mb-6">Markandeya Abhishek Booking</h2>
+        <h2 className="text-2xl font-bold text-center text-red-900 mb-6">{t('Markandeya Abhishek Booking')}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             name="fullName"
-            placeholder="Full Name"
+            placeholder={t('Full Name')}
             value={formData.fullName}
             onChange={handleChange}
             required
@@ -94,7 +98,7 @@ const MarkandeyaAbhishek = () => {
           <input
             type="email"
             name="email"
-            placeholder="Email Address"
+            placeholder={t('Email Address')}
             value={formData.email}
             onChange={handleChange}
             required
@@ -103,12 +107,14 @@ const MarkandeyaAbhishek = () => {
           <input
             type="tel"
             name="phone"
-            placeholder="Mobile Number"
+            placeholder={t('Mobile Number')}
             value={formData.phone}
             onChange={handleChange}
             required
             className="w-full p-3 h-[35px] border rounded"
           />
+          <div>
+          <label htmlFor="">{t('Date')}</label>
           <input
             type="date"
             name="pujaDate"
@@ -117,6 +123,9 @@ const MarkandeyaAbhishek = () => {
             required
             className="w-full p-3 h-[35px] border rounded"
           />
+          </div>
+          <div>
+          <label htmlFor="">{t('Time')}</label>
           <input
             type="time"
             name="pujaTime"
@@ -125,27 +134,29 @@ const MarkandeyaAbhishek = () => {
             required
             className="w-full p-3 h-[35px] border rounded"
           />
+          </div>
           <select
             name="pujaType"
             value={formData.pujaType}
             onChange={handleChange}
             className="w-full p-3 h-[38px] border rounded"
           >
-            <option value="Rudrabhishek">Rudrabhishek</option>
-            <option value="Laghu Rudra">Laghu Rudra</option>
-            <option value="Maha Rudra">Maha Rudra</option>
-            <option value="Ekadash Rudra">Ekadash Rudra</option>
+            <option value="Rudrabhishek">{t('Rudrabhishek')}</option>
+            <option value="Laghu Rudra">{t('Laghu Rudra')}</option>
+            <option value="Maha Rudra">{t('Maha Rudra')}</option>
+            <option value="Ekadash Rudra">{t('Ekadash Rudra')}</option>
           </select>
           <input
             type="text"
             name="gotra"
-            placeholder="Gotra"
+            placeholder={t('Gotra')}
             value={formData.gotra}
             onChange={handleChange}
             required
             className="w-full p-3 h-[35px] border rounded"
           />
-
+          <div>
+            <label htmlFor="">{t('No. of Participants')}</label>
           <input
             type="number"
             name="participants"
@@ -153,11 +164,11 @@ const MarkandeyaAbhishek = () => {
             value={formData.participants}
             onChange={handleChange}
             className="w-full p-3 h-[35px] border rounded"
-            placeholder="No. of Participants"
           />
+          </div>
           <textarea
             name="specialRequests"
-            placeholder="Special Requests (optional)"
+            placeholder={t('Special Requests (optional)')}
             value={formData.specialRequests}
             onChange={handleChange}
             rows="3"
@@ -165,9 +176,9 @@ const MarkandeyaAbhishek = () => {
           />
           <button
             type="submit"
-            className="w-[100px] h-[40px] bg-orange-600 text-white p-3 rounded text-center hover:bg-orange-700"
+            className="flex items-center gap-1 w-[130px] h-[40px] bg-orange-600 text-white p-3 rounded text-center hover:bg-orange-700"
           >
-            Book Puja
+            {('Book Puja')}<SendHorizontal size={20} strokeWidth={1.5} />
           </button>
         </form>
       </div>

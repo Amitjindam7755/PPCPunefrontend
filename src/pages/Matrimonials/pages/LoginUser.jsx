@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -10,6 +11,7 @@ const LoginUser = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const {t} = useTranslation();
 
   const handleRedirect = () => {
     navigate('/profilecard'); 
@@ -38,7 +40,7 @@ const LoginUser = () => {
       }}
     >
       <div className="bg-white bg-opacity-30 rounded-lg py-15 px-5 shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Catalogue Login</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">{t('Catalogue Login')}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
@@ -58,16 +60,16 @@ const LoginUser = () => {
             onChange={handleChange}
             required
           />
-          <p className='text-xs text-orange-500'>use free registration password here</p>
+          <p className='text-xs text-orange-500'>{t('use free registration password here')}</p>
           <button
             type="submit"
             className="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-700 transition"
           >
-            Login
+            {t('Login')}
           </button>
           <br />
           <button type="submit" onClick={handleRedirect}  className="w-full bg-orange-500 text-white py-2 rounded font-semibold">
-            Create another profile
+            {t('Create another profile')}
           </button>
         </form>
         <p className="text-xs text-gray-600 mt-4 text-center">

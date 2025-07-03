@@ -71,7 +71,7 @@ const handleSubscribe = async (e) => {
   return (
     <>
       <NewsItems />
-      <div className="flex flex-col md:flex-row items-start justify-center gap-10 px-4 md:px-16 py-12 bg-white min-h-screen shadow-none">
+      <div className="flex flex-col md:flex-row items-start justify-center gap-10 px-4 mb-10 md:px-16 py-12 bg-white min-h-screen shadow-none">
         {/* Carousel on the left */}
         <div className="w-full overflow-hidden">
           <Slider {...settings}>
@@ -117,11 +117,11 @@ const handleSubscribe = async (e) => {
                 <br />
       {/* Upcoming Events Section */}
  <div className="text-center py-6 mt-10 bg-purple-50 ">
-        <h4 className="text-xl font-semibold text-purple-800">Upcoming Events... (Ex. Vadhu Var Melava, Sports, Any other activites etc..)</h4>
+        <h4 className="text-xl font-semibold text-purple-800">{t('Upcoming Events... (Ex. Vadhu Var Melava, Sports, Any other activites etc..)')}</h4>
           <div className="flex flex-col md:flex-row gap-6 p-4 justify-center items-start">
   {/* Subscription Box */}
   <div className="bg-white shadow-md rounded-xl p-4 w-full max-w-md">
-    <h4 className="text-md font-semibold text-purple-800 mb-4">Subscribe for Event Updates</h4>
+    <h4 className="text-md font-semibold text-purple-800 mb-4">{t('Subscribe for Event Updates')}</h4>
     <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 items-center">
       <input
         type="text"
@@ -151,7 +151,7 @@ const handleSubscribe = async (e) => {
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
     <div className="bg-white rounded-xl shadow-lg p-6 max-w-sm w-full text-center popup-animate">
       <h3 className="text-xl font-semibold mb-4">
-        Subscribe to our YouTube Channel to grow our community and receive event updates in your Inbox/Text message.
+        {t('Subscribe to our YouTube Channel to grow our community and receive event updates in your Inbox/Text message.')}
       </h3>
 
       <div className="flex justify-center">

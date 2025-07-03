@@ -146,6 +146,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
+import { SendHorizontal } from 'lucide-react';
 import axios from 'axios';
 import { bookingSchema } from '../../FormValidation/bookingSchema';
 
@@ -178,16 +180,18 @@ const AlandiRoomBooking = () => {
     }
   };
 
+  const {t} = useTranslation();
+
   return (
     <div>
       <div className="max-w-lg mx-auto p-8 rounded-lg shadow-lg bg-gray-50">
-        <h2 className="text-2xl font-bold text-center mb-6 text-red-900">Room Booking</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-red-900">{t('Room Booking')}</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           
           <div>
             <input
               type="text"
-              placeholder="Full Name"
+              placeholder={t('Full Name')}
               {...register('fullName')}
               className="w-full p-3 h-[35px] border rounded"
             />
@@ -197,7 +201,7 @@ const AlandiRoomBooking = () => {
           <div>
             <input
               type="email"
-              placeholder="Email Address"
+              placeholder={t('Email Address')}
               {...register('email')}
               className="w-full p-3 h-[35px] border rounded"
             />
@@ -207,7 +211,7 @@ const AlandiRoomBooking = () => {
           <div>
             <input
               type="tel"
-              placeholder="Mobile Number"
+              placeholder={t('Mobile Number')}
               {...register('phone')}
               className="w-full p-3 h-[35px] border rounded"
             />
@@ -216,6 +220,7 @@ const AlandiRoomBooking = () => {
 
           <div className="flex flex-col md:flex-row gap-4">
             <div className="w-full">
+              <label htmlFor="">{t('Check In')}</label>
               <input
                 type="date"
                 {...register('checkIn')}
@@ -225,6 +230,7 @@ const AlandiRoomBooking = () => {
             </div>
 
             <div className="w-full">
+              <label htmlFor="">{t('Check Out')}</label>
               <input
                 type="date"
                 {...register('checkOut')}
@@ -237,7 +243,7 @@ const AlandiRoomBooking = () => {
           <div className="flex flex-col md:flex-row gap-4">
           <div className='w-full'>
             <select {...register('roomType')} className="w-full p-3 h-[41px] border rounded">
-              <option value="">Select Room Type</option>
+              <option value="">{t('Select Room Type')}</option>
               <option value="standard">Standard Room</option>
               <option value="deluxe">Deluxe Room</option>
               <option value="suite">Suite</option>
@@ -249,7 +255,7 @@ const AlandiRoomBooking = () => {
             <input
               type="number"
               min="1"
-              placeholder="Number of Guests"
+              placeholder={t('Number of Guests')}
               {...register('guests')}
               className="w-full p-3 h-[35px] border rounded"
             />
@@ -259,7 +265,7 @@ const AlandiRoomBooking = () => {
 
           <div>
             <textarea
-              placeholder="Any special requests?"
+              placeholder={t('Any special requests?')}
               {...register('specialRequests')}
               className="w-full p-3 border rounded"
               rows="3"
@@ -269,9 +275,9 @@ const AlandiRoomBooking = () => {
 
           <button
             type="submit"
-            className="w-[61px] bg-blue-600 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
+            className="flex items-center gap-1 w-[130px] bg-blue-600 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
           >
-            Book Now
+            {t('Book Now')}<SendHorizontal size={20} strokeWidth={1.5} />
           </button>
         </form>
       </div>

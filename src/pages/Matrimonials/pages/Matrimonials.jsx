@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
+// import { useTransition } from 'react';
 
 const Matrimonials = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,8 @@ const Matrimonials = () => {
     mobile: '',
     password: ''
   });
+
+  const {t} = useTranslation();
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -55,10 +59,10 @@ const Matrimonials = () => {
   return (
     <div className="flex items-end justify-end min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('https://img2.shaadi.com/assests/2024/images/shaadi-north-desktop.webp')` }}>
       <div className="bg-black bg-opacity-30 p-8 rounded-lg max-w-sm w-full text-white shadow-lg">
-        <h2 className="text-xl font-semibold mb-6">Registration</h2>
+        <h2 className="text-xl font-semibold mb-6">{t('Registration')}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm mb-1">Create Profile For</label>
+            <label className="block text-sm mb-1">{t('Create Profile For')}</label>
             <select
               name="profile_for"
               value={formData.profile_for}
@@ -66,19 +70,19 @@ const Matrimonials = () => {
               className="w-full p-2 rounded text-black border"
               required
             >
-              <option value="">Select</option>
-              <option value="Self">Self</option>
-              <option value="Son">Son</option>
-              <option value="Daughter">Daughter</option>
-              <option value="Brother">Brother</option>
-              <option value="Sister">Sister</option>
-              <option value="Relative/Friend">Relative/Friend</option>
-              <option value="Marriage Bureau">Marriage Bureau</option>
+              <option value="">{t('Select')}</option>
+              <option value="Self">{t('Self')}</option>
+              <option value="Son">{t('Son')}</option>
+              <option value="Daughter">{t('Daughter')}</option>
+              <option value="Brother">{t('Brother')}</option>
+              <option value="Sister">{t('Sister')}</option>
+              <option value="Relative/Friend">{t('Relative/Friend')}</option>
+              <option value="Marriage Bureau">{t('Marriage Bureau')}</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Email Address</label>
+            <label className="block text-sm mb-1">{t('Email Address')}</label>
             <input
               type="email"
               name="email"
@@ -91,7 +95,7 @@ const Matrimonials = () => {
           </div>
             {errors.email && <p className='text-red-500 text-sm'>{errors.email}</p>}
           <div className='w-full'>
-            <label className="block text-sm mb-1">Mobile No.</label>
+            <label className="block text-sm mb-1">{t('Mobile No.')}</label>
             <div className="flex">
               <span className="p-2 bg-gray-200 text-black rounded-l whitespace-nowrap">+91</span>
               <input
@@ -107,7 +111,7 @@ const Matrimonials = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Create Password</label>
+            <label className="block text-sm mb-1">{t('Create Password')}</label>
             <input
               type="password"
               name="password"
@@ -119,11 +123,11 @@ const Matrimonials = () => {
           </div>
              {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
           <button type="submit" className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded font-semibold">
-            Register for Free
+            {t('Register for Free')}
           </button>
           <br />
           <button type="submit" onClick={handleRedirect}  className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded font-semibold">
-            If you are register Login
+            {t('If you are register Login')}
           </button>
 
           <p className="text-xs text-center mt-2">

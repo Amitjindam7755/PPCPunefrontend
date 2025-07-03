@@ -87,9 +87,15 @@
 import React from 'react';
 import { assets } from '../../assets/assets';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { RiTwitterXFill } from "react-icons/ri";
+import { SlSocialFacebook } from "react-icons/sl";
 import VisitCounter from '../../VisitCounter';
 
 const Footer = () => {
+
+  const {t} =useTranslation();
+
   return (
     <div className="bg-gray-800 text-gray-300 flex flex-col items-center gap-6 px-4 md:px-16 py-10">
       {/* Footer Content */}
@@ -99,16 +105,18 @@ const Footer = () => {
         <div className="flex flex-col items-start gap-6 mt-3">
           {/* Social Icons */}
           <div className="flex gap-4">
-            <img
+            {/* <img
               src={assets.facebook_icon}
               alt="Facebook"
               className="w-10 h-10 cursor-pointer"
-            />
-            <img
+            /> */}
+            <SlSocialFacebook className='w-10 h-10 cursor-pointer' />
+            {/* <img
               src={assets.twitter_icon}
               alt="Twitter"
               className="w-10 h-10 cursor-pointer"
-            />
+            /> */}
+                <RiTwitterXFill className='w-10 h-10 cursor-pointer' />
           </div>
 
           {/* Google Map */}
@@ -142,7 +150,7 @@ const Footer = () => {
             <h2 className="text-white text-xl md:text-2xl font-semibold">GET IN TOUCH</h2>
             <ul className="flex flex-col gap-3">
               <li className="text-wrap">
-                1124 Bhavani Peth, Shri Padmashali Vitthal Rakhumai Mandir, Padmashali Puram, Pune 411042.
+                {t('1124 Bhavani Peth, Shri Padmashali Vitthal Rakhumai Mandir, Padmashali Puram, Pune 411042.')}
               </li>
               <li>+1-212-456-7890</li>
               <li>contact@ignitel.com</li>

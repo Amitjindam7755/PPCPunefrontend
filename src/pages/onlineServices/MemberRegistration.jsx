@@ -233,9 +233,12 @@ import React from 'react';
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../FormValidation/validationSchema';
+import { useTranslation } from 'react-i18next';
+import { Trash2, UserRoundPlus, SendHorizontal } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
+
 
 const MemberRegistration = () => {
   const {
@@ -297,11 +300,13 @@ const MemberRegistration = () => {
     }
   };
 
+  const {t} = useTranslation();
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-4 sm:p-6 max-w-5xl mx-auto bg-gray-50 rounded shadow">
 
-      <h1 className="text-2xl font-bold text-center mb-4 text-red-800">Family Registration Form</h1>
-      <h2 className="text-xl font-semibold text-red-800">Head of the Family</h2>
+      <h1 className="text-2xl font-bold text-center mb-4 text-red-800">{t('Family Registration Form')}</h1>
+      <h2 className="text-xl font-semibold text-red-800">{t('Head of the Family')}</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {[
@@ -321,14 +326,14 @@ const MemberRegistration = () => {
           ['Surname', 'surname']
         ].map(([label, name]) => (
           <div key={name}>
-            <label className="block text-sm font-medium">{label}</label>
+            <label className="block text-sm font-medium">{t(label)}</label>
             <input {...register(`head.${name}`)} className="w-full p-2 border border-gray-300 rounded" />
             {errors.head?.[name] && <p className="text-red-600 text-sm">{errors.head[name].message}</p>}
           </div>
         ))}
 
         <div>
-          <label className="block text-sm font-medium">Date of Birth</label>
+          <label className="block text-sm font-medium">{t('Date of Birth')}</label>
           <Controller
             control={control}
             name="head.dob"
@@ -346,12 +351,12 @@ const MemberRegistration = () => {
         </div>
       </div>
 
-      <h2 className="text-xl font-semibold mt-8 mb-4">Family Members</h2>
+      <h2 className="text-xl font-semibold mt-8 mb-4">{t('Family Members')}</h2>
       {fields.map((item, index) => (
         <div key={item.id} className="border bg-white p-4 rounded mb-4">
           <div className="flex justify-between">
-            <h3 className="font-semibold">Member {index + 1}</h3>
-            <button type="button" onClick={() => remove(index)} className="text-white w-[70px] h-[30px] mb-5">Delete</button>
+            <h3 className="font-semibold">{t('Member')} {index + 1}</h3>
+            <button type="button"  onClick={() => remove(index)} className="flex items-center gap-1 text-white w-[75px] h-[33px] mb-4 pl-2">{t('Delete')}<Trash2 size={16} strokeWidth={1.75} /></button>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             {[
@@ -370,14 +375,14 @@ const MemberRegistration = () => {
               ['Relation with Head', 'relation']
             ].map(([label, name]) => (
               <div key={name}>
-                <label className="block text-sm font-medium">{label}</label>
+                <label className="block text-sm font-medium">{t(label)}</label>
                 <input {...register(`familyMembers.${index}.${name}`)} className="w-full p-2 border border-gray-300 rounded" />
                 {errors.familyMembers?.[index]?.[name] && <p className="text-red-600 text-sm">{errors.familyMembers[index][name].message}</p>}
               </div>
             ))}
 
             <div>
-              <label className="block text-sm font-medium">Date of Birth</label>
+              <label className="block text-sm font-medium">{t('Date of Birth')}</label>
               <Controller
                 control={control}
                 name={`familyMembers.${index}.dob`}
@@ -400,9 +405,9 @@ const MemberRegistration = () => {
       <div className="flex gap-4 mt-4">
         <button type="button" onClick={() => append({
           name: '', fatherName: '', motherName: '', surname: '', dob: null, age: '', sex: '', education: '', occupation: '', status: '', workAddress: '', whatsapp: '', area: '', relation: ''
-        })} className="bg-blue-600 w-[135px] h-[40px] text-white px-4 py-2 rounded hover:bg-blue-700">Add Member</button>
+        })} className="flex gap-2 items-center bg-blue-600 w-[135px] h-[40px] text-white px-4 py-2 rounded hover:bg-blue-700">{t('Add Member')}<UserRoundPlus size={20} strokeWidth={2.3} /></button>
 
-        <button type="submit" className="bg-green-600 w-[135px] h-[40px] text-white px-4 py-2 rounded hover:bg-green-700">Submit</button>
+        <button type="submit" className="flex items-center gap-2 bg-green-600 w-[137px] h-[41px] text-white px-4 py-2 rounded hover:bg-green-700">{t('Submit')}<SendHorizontal size={20} strokeWidth={1.9} /></button>
       </div>
     </form>
   );

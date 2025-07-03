@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SendHorizontal } from 'lucide-react';
 import axios from 'axios';
 
 const ShitaladeviAbhishek = () => {
@@ -49,16 +51,17 @@ const ShitaladeviAbhishek = () => {
   }
 };
 
+const {t} = useTranslation();
 
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-gray-50 p-8 rounded-lg shadow-lg max-w-lg w-full">
-        <h2 className="text-2xl font-bold text-center text-red-900 mb-6">Shitaladevi Abhishek Booking</h2>
+        <h2 className="text-2xl font-bold text-center text-red-900 mb-6">{t('Shitaladevi Abhishek Booking')}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             name="fullName"
-            placeholder="Full Name"
+            placeholder={t('Full Name')}
             value={formData.fullName}
             onChange={handleChange}
             required
@@ -67,7 +70,7 @@ const ShitaladeviAbhishek = () => {
           <input
             type="email"
             name="email"
-            placeholder="Email Address"
+            placeholder={t('Email Address')}
             value={formData.email}
             onChange={handleChange}
             required
@@ -76,12 +79,14 @@ const ShitaladeviAbhishek = () => {
           <input
             type="tel"
             name="phone"
-            placeholder="Mobile Number"
+            placeholder={t('Mobile Number')}
             value={formData.phone}
             onChange={handleChange}
             required
             className="w-full p-3 h-[35px] border rounded"
           />
+          <div>
+            <label htmlFor="">{t('Date')}</label>
           <input
             type="date"
             name="pujaDate"
@@ -89,7 +94,10 @@ const ShitaladeviAbhishek = () => {
             onChange={handleChange}
             required
             className="w-full p-3 h-[35px] border rounded"
-          />
+          />                  
+          </div>
+          <div>
+          <label htmlFor="">{t('Time')}</label>
           <input
             type="time"
             name="pujaTime"
@@ -98,15 +106,17 @@ const ShitaladeviAbhishek = () => {
             required
             className="w-full p-3 h-[35px] border rounded"
           />
+          </div>
           <input
             type='text'
             name="pujaType"
-            placeholder='Puja Type'
+            placeholder={t('Puja Type')}
             value={formData.pujaType}
             onChange={handleChange}
             className="w-full p-3 h-[35px] border rounded"
           />
-          
+          <div>
+            <label htmlFor="">{t('No. of Participants')}</label>
           <input
             type="number"
             name="participants"
@@ -114,21 +124,20 @@ const ShitaladeviAbhishek = () => {
             value={formData.participants}
             onChange={handleChange}
             className="w-full p-3 h-[35px] border rounded"
-            placeholder="No. of Participants"
           />
+          </div>
           <textarea
             name="specialRequests"
-            placeholder="Special Requests (optional)"
-            value={formData.specialRequests}
+            placeholder={t('Special Requests (optional)')}
             onChange={handleChange}
             rows="3"
             className="w-full p-3 border rounded"
           />
           <button
             type="submit"
-            className="w-[100px] h-[45px] bg-orange-600 text-white p-3 rounded hover:bg-orange-700"
+            className="flex items-center text-center gap-1 w-[130px] h-[45px] bg-orange-600 text-white p-3 rounded hover:bg-orange-700"
           >
-            Book Puja
+            {t('Book Puja')}<SendHorizontal size={20} strokeWidth={1.5} />
           </button>
         </form>
       </div>
