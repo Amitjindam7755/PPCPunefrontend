@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const AdminShitaladevi = () => {
   const [bookings, setBookings] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchBookings = async () => {
     const res = await axios.get('http://localhost:8081/api/shitaladevi-bookings');
@@ -24,13 +25,28 @@ const AdminShitaladevi = () => {
     fetchBookings();
   }, []);
 
+  // Filter logic for search
+  const filteredBookings = bookings.filter((b) => {
+    const combined = `${b.fullName} ${b.email} ${b.phone} ${b.pujaType}`;
+    return combined.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   return (
     <div className="p-4 max-w-full overflow-x-auto">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold text-orange-700">Shitaladevi Abhishek Bookings</h2>
-        <button onClick={exportExcel} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-          Export Excel
-        </button>
+        <div className='flex flex-wrap gap-4'>
+            <input
+              type="text"
+              placeholder="Search by name, email, phone, type..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border rounded px-2 py-1"
+            />
+          <button onClick={exportExcel} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Export Excel
+          </button>
+        </div>
       </div>
       <table className="min-w-full text-sm border rounded shadow">
         <thead className="bg-orange-100">
@@ -47,7 +63,7 @@ const AdminShitaladevi = () => {
           </tr>
         </thead>
         <tbody>
-          {bookings.map((b) => (
+          {/* {bookings.map((b) => (
             <tr key={b.id} className="hover:bg-orange-50">
               <td className="p-2 border">{b.fullName}</td>
               <td className="p-2 border">{b.email}</td>
@@ -61,7 +77,33 @@ const AdminShitaladevi = () => {
                 <button onClick={() => deleteBooking(b.id)} className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
               </td>
             </tr>
-          ))}
+          ))} */}
+          {filteredBookings.length > 0 ? (
+            filteredBookings.map((b) => (
+              <tr key={b.id} className={`hover:bg-orange-50 ${searchTerm ? 'bg-yellow-100' : ''}`}>
+                <td className="p-2 border">{b.fullName}</td>
+                <td className="p-2 border">{b.email}</td>
+                <td className="p-2 border">{b.phone}</td>
+                <td className="p-2 border">{b.pujaDate}</td>
+                <td className="p-2 border">{b.pujaTime}</td>
+                <td className="p-2 border">{b.pujaType}</td>
+                <td className="p-2 border">{b.participants}</td>
+                <td className="p-2 border">{b.specialRequests}</td>
+                <td className="p-2 border text-center">
+                  <button
+                    onClick={() => deleteBooking(b.id)}
+                    className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="9" className="text-center py-4">No matching bookings found</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

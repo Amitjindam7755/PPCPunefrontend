@@ -180,91 +180,91 @@ const ManagementTeam = () => {
   const {t} = useTranslation();
 
   const members = [
-  { name: "श्री रवींद्र महादेव रच्चा", role: "सरपंच", image:'/members/MemberPhoto.jpg' },
-  { name: "श्री नंदकुमार गंगादास कुंदन", role: "विश्वस्त" },
-  { name: "श्री संजय शिवाजी चिलका", role: "विश्वस्त" },
-  { name: "श्री ज्ञानेश्वर रामचंद्र बोड्डू", role: "चिटणीस" },
-  { name: "श्री वसंतराव अनंतराव येमुल", role: "सल्लागार" },
-  { name: "श्री अशोक बलराम झंपाल", role: "सल्लागार" },
-  { name: "श्री भरत रामचंद्र शेरला", role: "सल्लागार" },
-  { name: "श्री राहुल दत्तात्रेय येमुल", role: "" },
-  { name: "श्री मनीष दत्तात्रय अंदे", role: "" },
-  { name: "श्री महेश ज्ञानेश्वर यमजाल", role: "" }
+  // { name: "श्री रवींद्र महादेव रच्चा", role: "सरपंच", image:'/members/MemberPhoto.jpg' },
+  { name: "श्री. नंदकुमार गंगादास कुंदन", role: "विश्वस्त" },
+  { name: "श्री. संजय शिवाजी चिलका", role: "विश्वस्त" },
+  { name: "श्री. ज्ञानेश्वर रामचंद्र बोड्डू", role: "चिटणीस" },
+  { name: "श्री. वसंतराव अनंतराव येमुल", role: "सल्लागार" },
+  { name: "श्री. अशोक बलराम झंपाल", role: "सल्लागार" },
+  { name: "श्री. भरत रामचंद्र शेरला", role: "सल्लागार" },
+  { name: "श्री. राहुल दत्तात्रेय येमुल", role: "" },
+  { name: "श्री. मनीष दत्तात्रय अंदे", role: "" },
+  { name: "श्री. महेश ज्ञानेश्वर यमजाल", role: "" }
 ];
 
 const membersCommittee = [
-  { name: "श्री संजीव नारायण मंचे", role: "अध्यक्ष", image:'' },
-  { name: "श्री राजू वसंत गड्डम", role: "उपाध्यक्ष", image:'' },
-  { name: "श्री प्रभाकर केशव कैरमकोंडा", role: "उपाध्यक्ष", image:'' },
-  { name: "श्री विक्रम श्रीपत विलासागर", role: "उपाध्यक्ष", image:'' },
-  { name: "श्री सागर गोरखनाथ पासकंटी", role: "उपाध्यक्ष", image:'' },
-  { name: "श्री सुहास नारायण मदनाल", role: "चिटणीस", image:'' },
-  { name: "श्री राजेंद्र जगन्नाथ आडप", role: "सह चिटणीस", image:'' },
-  { name: "श्री विलास नारायण मद्देल", role: "सह चिटणीस", image:'' },
-  { name: "श्री गोपाळ गंगाराम येमुल", role: "खजिनदार", image:'' },
-  { name: "श्री प्रभाकर जंगय्या दोंतुल", role: "सह खजिनदार", image:'' },
-  { name: "श्री राजेश नारायण मुल्का", role: "हिशोब तपासणीस", image:'' },
-  { name: "श्री उमेश परमेश्वर गज्जल", role: "सह हिशोब तपासणीस", image:'' },
-  { name: "श्री संजय रघुनाथ इरमल", role: "उत्सव प्रमुख", image:'' },
-  { name: "श्री अमोल गोविंद कोलपेक", role: "सह उत्सव प्रमुख", image:'' },
-  { name: "श्री प्रशांत लक्ष्मण दासरी", role: "प्रसिद्धी प्रमुख", image:'' },
-  { name: "श्री विलास नारायण जिंदम", role: "", image:'' },
-  { name: "श्री भास्कर मधुकर तन्नीर", role: "", image:'' },
-  { name: "श्री अनुपम अशोक वंगारी", role: "", image:'' },
-  { name: "श्री अभिजीत नरेश अनमल", role: "", image:'' },
-  { name: "श्री सागर गंगाधर आडे", role: "", image:'' },
-  { name: "श्री योगेश अशोक अंदे", role: "", image:'' },
-  { name: "श्री गणेश विठ्ठलराव अंकम", role: "", image:'' },
-  { name: "श्री श्रीकांत गोपाळ कटकम", role: "", image:'' },
-  { name: "श्री गिरीश सदाशिव मिठ्ठापेल्ली", role: "", image:'' },
-  { name: "श्री विनोद नरसय्या दंडी", role: "", image:'' },
-  { name: "श्री अविनाश विठ्ठल उपलंची", role: "", image:'' },
-  { name: "श्री नरेश सुरेश येमुल", role: "", image:'' },
-  { name: "श्री सचिन नारायण पलेर्ला", role: "", image:'' },
-  { name: "श्री दिनेश मोगलप्पा वलसा", role: "", image:'' },
-  { name: "श्री राजेश व्यंकटेश उपरपेल्ली", role: "", image:'' },
-  { name: "श्री नरेश श्रीनिवास पाचकंटी", role: "", image:'' },
-  { name: "सौ नंदा राजू गरदास", role: "", image:'' },
-  { name: "सौ अरुणा पुरुषोत्तम सापा", role: "", image:'' },
-  { name: "सौ शारदा जयंत कस्तुरी", role: "", image:'' },
-  { name: "श्रीमती शुभांगी अशोक अंदे", role: "", image:'' },
-  { name: "श्री रोहन प्रभाकर दोंतुल", role: "", image:'' },
-  { name: "श्री सुहास चंद्रकांत मंचे", role: "", image:'' }
+  // { name: "श्री संजीव नारायण मंचे", role: "अध्यक्ष", image:'' },
+  { name: "श्री. राजू वसंत गड्डम", role: "उपाध्यक्ष", image:'' },
+  { name: "श्री. प्रभाकर केशव कैरमकोंडा", role: "उपाध्यक्ष", image:'' },
+  { name: "श्री. विक्रम श्रीपत विलासागर", role: "उपाध्यक्ष", image:'' },
+  { name: "श्री. सागर गोरखनाथ पासकंटी", role: "उपाध्यक्ष", image:'' },
+  { name: "श्री. सुहास नारायण मदनाल", role: "चिटणीस", image:'' },
+  { name: "श्री. राजेंद्र जगन्नाथ आडप", role: "सह चिटणीस", image:'' },
+  { name: "श्री. विलास नारायण मद्देल", role: "सह चिटणीस", image:'' },
+  { name: "श्री. गोपाळ गंगाराम येमुल", role: "खजिनदार", image:'' },
+  { name: "श्री. प्रभाकर जंगय्या दोंतुल", role: "सह खजिनदार", image:'' },
+  { name: "श्री. राजेश नारायण मुल्का", role: "हिशोब तपासणीस", image:'' },
+  { name: "श्री. उमेश परमेश्वर गज्जल", role: "सह हिशोब तपासणीस", image:'' },
+  { name: "श्री. संजय रघुनाथ इरमल", role: "उत्सव प्रमुख", image:'' },
+  { name: "श्री. अमोल गोविंद कोलपेक", role: "सह उत्सव प्रमुख", image:'' },
+  { name: "श्री. प्रशांत लक्ष्मण दासरी", role: "प्रसिद्धी प्रमुख", image:'' },
+  { name: "श्री. विलास नारायण जिंदम", role: "", image:'' },
+  { name: "श्री. भास्कर मधुकर तन्नीर", role: "", image:'' },
+  { name: "श्री. अनुपम अशोक वंगारी", role: "", image:'' },
+  { name: "श्री. अभिजीत नरेश अनमल", role: "", image:'' },
+  { name: "श्री. सागर गंगाधर आडे", role: "", image:'' },
+  { name: "श्री. योगेश अशोक अंदे", role: "", image:'' },
+  { name: "श्री. गणेश विठ्ठलराव अंकम", role: "", image:'' },
+  { name: "श्री. श्रीकांत गोपाळ कटकम", role: "", image:'' },
+  { name: "श्री. गिरीश सदाशिव मिठ्ठापेल्ली", role: "", image:'' },
+  { name: "श्री. विनोद नरसय्या दंडी", role: "", image:'' },
+  { name: "श्री. अविनाश विठ्ठल उपलंची", role: "", image:'' },
+  { name: "श्री. नरेश सुरेश येमुल", role: "", image:'' },
+  { name: "श्री. सचिन नारायण पलेर्ला", role: "", image:'' },
+  { name: "श्री. दिनेश मोगलप्पा वलसा", role: "", image:'' },
+  { name: "श्री. राजेश व्यंकटेश उपरपेल्ली", role: "", image:'' },
+  { name: "श्री. नरेश श्रीनिवास पाचकंटी", role: "", image:'' },
+  { name: "सौ. नंदा राजू गरदास", role: "", image:'' },
+  { name: "सौ. अरुणा पुरुषोत्तम सापा", role: "", image:'' },
+  { name: "सौ. शारदा जयंत कस्तुरी", role: "", image:'' },
+  { name: "श्रीमती. शुभांगी अशोक अंदे", role: "", image:'' },
+  { name: "श्री. रोहन प्रभाकर दोंतुल", role: "", image:'' },
+  { name: "श्री. सुहास चंद्रकांत मंचे", role: "", image:'' }
 ];
 
 const invitedMembers = [
-  { name: "श्री सदानंद गंगाधर अंदे", image:'' },
-  { name: "श्री राजेंद्र दत्तात्रय गाजून", image:'' },
-  { name: "श्री अभिजीत प्रभाकर जिंदम", image:'' },
-  { name: "श्री विश्वनाथ भुमय्या अलचेट्टी", image:'' },
-  { name: "श्री गणेश शेरला", image:'' },
-  { name: "श्री संजय विठ्ठलराव मडुर", image:'' },
-  { name: "श्री संतोष शंकरराव चिलका", image:'' },
-  { name: "श्री अमर ज्ञानेश्वर बोड्डू", image:'' },
-  { name: "श्री जयेंद्र बाबुराव कस्तुरी", image:'' },
-  { name: "श्री अमर उट्टम", image:'' },
-  { name: "श्री रमेश गोविंद संग्गम", image:'' },
-  { name: "श्री अभिषेक भूमेश सापा", image:'' },
-  { name: "श्री संतोष सदानंद आडेप", image:'' },
-  { name: "सौ लक्ष्मीताई जगदीश कोंडा", image:'' }
+  { name: "श्री. सदानंद गंगाधर अंदे", image:'' },
+  { name: "श्री. राजेंद्र दत्तात्रय गाजून", image:'' },
+  { name: "श्री. अभिजीत प्रभाकर जिंदम", image:'' },
+  { name: "श्री. विश्वनाथ भुमय्या अलचेट्टी", image:'' },
+  { name: "श्री. गणेश शेरला", image:'' },
+  { name: "श्री. संजय विठ्ठलराव मडुर", image:'' },
+  { name: "श्री. संतोष शंकरराव चिलका", image:'' },
+  { name: "श्री. अमर ज्ञानेश्वर बोड्डू", image:'' },
+  { name: "श्री. जयेंद्र बाबुराव कस्तुरी", image:'' },
+  { name: "श्री. अमर उट्टम", image:'' },
+  { name: "श्री. रमेश गोविंद संग्गम", image:'' },
+  { name: "श्री. अभिषेक भूमेश सापा", image:'' },
+  { name: "श्री. संतोष सदानंद आडेप", image:'' },
+  { name: "सौ. लक्ष्मीताई जगदीश कोंडा", image:'' }
 ];
 
 const templeCommitteeMembers = [
-  { name: "श्री विठ्ठलराव गंगाराम अंकम", image:'' },
-  { name: "श्री गंगाधर शिष्टअय्या जक्कनी", image:'' },
-  { name: "श्री ललित सदाशिव मेरगु", image:'' },
-  { name: "श्री सुहास गणेश आडप", image:'' },
-  { name: "श्री गणेश कत्तूल", image:'' },
-  { name: "श्री गोपाळे इरय्या कटकम", image:'' },
-  { name: "श्री शांताराम गंगाराम मच्चा", image:'' },
-  { name: "श्री पुरुषोत्तम नरहरी सापा", image:'' },
-  { name: "श्री सुहास गंगाराम गंगारपू", image:'' },
-  { name: "श्री चेतन शामराव सग्गम", image:'' },
-  { name: "श्री विश्वनाथ भुमय्या बासा", image:'' },
-  { name: "श्री शंकर राजाराम उरळी", image:'' },
-  { name: "श्री पुरुषोत्तम लखावत्री", image:'' },
-  { name: "श्री सतीश भुमय्या मिठ्ठापेल्ली", image:'' },
-  { name: "श्री ज्ञानेश्वर अंकम", image:'' }
+  { name: "श्री. विठ्ठलराव गंगाराम अंकम", image:'' },
+  { name: "श्री. गंगाधर शिष्टअय्या जक्कनी", image:'' },
+  { name: "श्री. ललित सदाशिव मेरगु", image:'' },
+  { name: "श्री. सुहास गणेश आडप", image:'' },
+  { name: "श्री. गणेश कत्तूल", image:'' },
+  { name: "श्री. गोपाळे इरय्या कटकम", image:'' },
+  { name: "श्री. शांताराम गंगाराम मच्चा", image:'' },
+  { name: "श्री. पुरुषोत्तम नरहरी सापा", image:'' },
+  { name: "श्री. सुहास गंगाराम गंगारपू", image:'' },
+  { name: "श्री. चेतन शामराव सग्गम", image:'' },
+  { name: "श्री. विश्वनाथ भुमय्या बासा", image:'' },
+  { name: "श्री. शंकर राजाराम उरळी", image:'' },
+  { name: "श्री. पुरुषोत्तम लखावत्री", image:'' },
+  { name: "श्री. सतीश भुमय्या मिठ्ठापेल्ली", image:'' },
+  { name: "श्री. ज्ञानेश्वर अंकम", image:'' }
 ];
 
 const legalAdvisors = [
@@ -275,10 +275,23 @@ const legalAdvisors = [
   return (
       <div>
         <div>
-        <h1 className='flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold text-red-800 mb-6 mt-4'>{t('Committee Members')}</h1>
+        <h1 className='flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold mb-6 mt-4' style={{color: '#5d001e'}}>{t('Committee Members')}</h1>
         <br />
-        <h2 className='flex items-center justify-center py-2 text-red-800 font-semibold text-xl'>विश्वस्त</h2>
-        <div className='grid grid-cols-1 md:grid-cols-5 gap-2 text-center text-lg'>
+        <h2 className='flex items-center justify-center py-2 font-semibold text-xl mt-9 mb-6' style={{color: '#5d001e'}}>विश्वस्त</h2>
+          {/* Centered card with image */}
+            <div className="flex justify-center mb-4">
+              <div className='bg-white p-4 rounded shadow-md text-center'>
+                <img
+                  src='/members/MemberPhoto.jpg'
+                  alt="श्री रवींद्र महादेव रच्चा"
+                  className="w-20 h-20 object-cover mx-auto mb-2 border border-gray-300"
+                />
+                <div className='font-semibold' style={{color: '#5d001e'}}>श्री. रवींद्र महादेव रच्चा</div>
+                <div className='text-sm text-gray-600'>सरपंच</div>
+              </div>
+            </div>
+        {/* other names */}
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-2 text-center text-lg'>
              {members.map((member, index) => (
           <div key={index} className='bg-white p-4 rounded shadow-md'>
 
@@ -289,7 +302,7 @@ const legalAdvisors = [
                       className="w-20 h-20 object-cover mx-auto mb-2 border border-gray-300"
                     />
                     )}
-            <div className='text-red-900 font-semibold'>{member.name}</div>
+            <div className='font-semibold' style={{color: '#5d001e'}}>{member.name}</div>
                 {member.role && (
             <div className='text-sm text-gray-600'>{member.role}</div>
                 )}
@@ -299,11 +312,24 @@ const legalAdvisors = [
       </div>
         
       <div>
-        <h1 className='flex items-center justify-center py-2 text-xl font-semibold text-red-800 '>कार्यकारणी सदस्य</h1>
+        <h1 className='flex items-center justify-center py-2 text-xl font-semibold mt-9 mb-6' style={{color: '#5d001e'}}>कार्यकारणी सदस्य</h1>
+          {/* Centered card with image */}
+            <div className="flex justify-center mb-4">
+              <div className='bg-white p-4 rounded shadow-md text-center'>
+                <img
+                  src='/members/MemberPhoto.jpg'
+                  alt="श्री. संजीव नारायण मंचे"
+                  className="w-20 h-20 object-cover mx-auto mb-2 border border-gray-300"
+                />
+                <div className='font-semibold' style={{color: '#5d001e'}}>श्री. संजीव नारायण मंचे</div>
+                <div className='text-sm text-gray-600'>अध्यक्ष</div>
+              </div>
+            </div>
+          {/* other names */}
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 text-center text-lg'>
             {membersCommittee.map((member, index) => (
             <div key={index} className='bg-white p-4 rounded shadow-md'>
-              <div className='text-red-900 font-semibold'>{member.name}</div>
+              <div className='font-semibold' style={{color: '#5d001e'}}>{member.name}</div>
                 {member.role && <div className='text-sm text-gray-600'>{member.role}</div>}
                 {/* {member.contact && <div className='text-sm text-gray-500'>📞 {member.contact}</div>} */}
             </div>
@@ -311,11 +337,11 @@ const legalAdvisors = [
           </div>
       </div>
       <div>
-            <h1 className='flex items-center justify-center py2 text-xl font-semibold text-red-800 '>निमंत्रित सदस्य</h1>
+            <h1 className='flex items-center justify-center py2 text-xl font-semibold mt-9 mb-6' style={{color: '#5d001e'}}>निमंत्रित सदस्य</h1>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 text-center text-lg'>
             {invitedMembers.map((member, index) => (
           <div key={index} className='bg-white p-4 rounded shadow-md'>
-              <div className='text-red-900 font-semibold'>{member.name}</div>
+              <div className='font-semibold' style={{color: '#5d001e'}}>{member.name}</div>
               {/* <div className='text-sm text-gray-500'>📞 {member.contact}</div> */}
           </div>
             ))}
@@ -323,11 +349,11 @@ const legalAdvisors = [
       </div>
             <br />
       <div>
-          <h1 className='flex items-center justify-center text-xl py2 font-semibold text-red-800'>मंदिर समिती सदस्य</h1>
+          <h1 className='flex items-center justify-center text-xl py2 font-semibold mt-9 mb-6' style={{color: '#5d001e'}}>मंदिर समिती सदस्य</h1>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 text-center text-lg'>
               {templeCommitteeMembers.map((member, index) => (
                 <div key={index} className='bg-white p-4 rounded shadow-md'>
-                  <div className='text-red-900 font-semibold'>{member.name}</div>
+                  <div className='font-semibold' style={{color: '#5d001e'}}>{member.name}</div>
                     {/* {member.contact && (
                   <div className='text-sm text-gray-500'>📞 {member.contact}</div>
                     )} */}
@@ -337,11 +363,11 @@ const legalAdvisors = [
       </div>
           <br />
       <div>
-          <h1 className='flex items-center justify-center text-xl font-semibold text-red-800 py-2'>कायदेशीर सल्लागार</h1>
+          <h1 className='flex items-center justify-center text-xl font-semibold py-2 mt-9 mb-6' style={{color: '#5d001e'}}>कायदेशीर सल्लागार</h1>
             <div className='flex flex-col-2 grid-cols-1 sm:grid-cols-4 gap-4 text-center justify-center items-center text-lg'>
               {legalAdvisors.map((advisor, index) => (
                 <div key={index} className='bg-white p-4 rounded shadow-md'>
-                  <div className='text-red-900 font-semibold'>{advisor.name}</div>
+                  <div className='font-semibold' style={{color: '#5d001e'}}>{advisor.name}</div>
                   {/* <div className='text-sm text-gray-500'>📞 {advisor.contact}</div> */}
                 </div>
                   ))}

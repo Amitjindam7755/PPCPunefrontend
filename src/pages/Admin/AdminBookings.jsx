@@ -158,6 +158,7 @@ import axios from 'axios';
 
 const AdminBookings = () => {
   const [bookings, setBookings] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchBookings = async () => {
     const res = await axios.get('http://localhost:8081/api/bookings');
@@ -183,11 +184,23 @@ const AdminBookings = () => {
     fetchBookings();
   }, []);
 
+  // Filter bookings if search term exists
+  const filteredBookings = bookings.filter(b => 
+    b.fullName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="p-4 max-w-full overflow-x-auto">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold text-orange-700">Room Bookings</h2>
-        <div className="flex gap-2">
+        <div className="flex gap-3">
+            <input 
+            type="text" 
+            placeholder="Search by name..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border rounded px-2 py-1"
+          />
           <button onClick={exportPDF} className="bg-red-500 px-4 py-2 text-white rounded hover:bg-red-600 transition">
             Download PDF
           </button>
@@ -208,7 +221,7 @@ const AdminBookings = () => {
           </tr>
         </thead>
         <tbody>
-          {bookings.map(b => (
+          {/* {bookings.map(b => (
             <tr key={b.id} className="hover:bg-orange-50">
               <td className="p-2 border">{b.fullName}</td>
               <td className="p-2 border">{b.email}</td>
@@ -224,7 +237,30 @@ const AdminBookings = () => {
                 </button>
               </td>
             </tr>
-          ))}
+          ))} */}
+          {filteredBookings.map(b => {
+            const isHighlighted = searchTerm && b.fullName.toLowerCase().includes(searchTerm.toLowerCase());
+            return (
+              <tr 
+                key={b.id} 
+                className={`hover:bg-orange-50 ${isHighlighted ? 'bg-yellow-200' : ''}`}
+              >
+                <td className="p-2 border">{b.fullName}</td>
+                <td className="p-2 border">{b.email}</td>
+                <td className="p-2 border">{b.checkIn}</td>
+                <td className="p-2 border">{b.checkOut}</td>
+                <td className="p-2 border">{b.roomType}</td>
+                <td className="p-2 border text-center">
+                  <button
+                    onClick={() => deleteBooking(b.id)}
+                    className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>

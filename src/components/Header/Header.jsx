@@ -31,11 +31,11 @@ const Header = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 6000,
   };
 
   const [subscriber, setSubscriber] = React.useState('');
@@ -94,8 +94,9 @@ const handleSubscribe = async (e) => {
                 vertical={true}
                 verticalSwiping={true}
                 infinite={true}
+                speed={1500}
                 autoplay={true}
-                autoplaySpeed={2000}
+                autoplaySpeed={6000}
                 slidesToShow={1}
                 slidesToScroll={1}
                 arrows={false}
@@ -117,11 +118,11 @@ const handleSubscribe = async (e) => {
                 <br />
       {/* Upcoming Events Section */}
  <div className="text-center py-6 mt-10 bg-purple-50 ">
-        <h4 className="text-xl font-semibold text-purple-800">{t('Upcoming Events... (Ex. Vadhu Var Melava, Sports, Any other activites etc..)')}</h4>
+        <h4 className="text-xl font-semibold" style={{color: '#5d001e'}}>{t('Upcoming Events... (Ex. Vadhu Var Melava, Sports, Any other activites etc..)')}</h4>
           <div className="flex flex-col md:flex-row gap-6 p-4 justify-center items-start">
   {/* Subscription Box */}
   <div className="bg-white shadow-md rounded-xl p-4 w-full max-w-md">
-    <h4 className="text-md font-semibold text-purple-800 mb-4">{t('Subscribe for Event Updates')}</h4>
+    <h4 className="text-md font-semibold mb-4" style={{color: '#5d001e'}}>{t('Subscribe for Event Updates')}</h4>
     <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 items-center">
       <input
         type="text"
@@ -132,7 +133,7 @@ const handleSubscribe = async (e) => {
       />
       <button
         type="submit"
-        className="bg-purple-700 text-white px-4 py-2 rounded-md hover:bg-purple-800 transition w-full sm:w-auto"
+        className="text-white px-4 py-2 rounded-md transition w-full sm:w-auto" style={{background: '#9A1750'}}
       >
         Subscribe
       </button>

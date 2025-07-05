@@ -134,6 +134,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'; // Mobile menu icons
 import { useTranslation } from 'react-i18next';
 
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -154,14 +155,14 @@ const Navbar = () => {
           dropdown: true,
           // viewOnly: true,
           children: [
-            { name: 'Pune Shahar Padmashali Yuvajan Sangham'},
-            { name: 'Bhavana Rushi Senior Citizens Club' },
-            { name: 'Senior Counselling Club' },
-            { name: 'Padmashali Vadhu Var Suchak Mandal' },
-            { name: 'Shikshan Sanstha' },
-            { name: 'Mahila Mandali' },
-            { name: 'Purohit Sangh' },
-            { name: 'Temple Committee' }
+            { name: 'Pune Shahar Padmashali Yuvajan Sangham', path: '/about/YuvajanSangh'},
+            { name: 'Bhavana Rushi Senior Citizens Club', path: '/about/SeniorCitizen' },
+            { name: 'Senior Counselling Club', path: '/about/CounsellingClub' },
+            { name: 'Padmashali Vadhu Var Suchak Mandal', path: '/about/VadhuVarMandal' },
+            { name: 'Shikshan Sanstha', path: '/about/ShikshanSanstha' },
+            { name: 'Mahila Mandali', path: '/about/MahilaMandal' },
+            { name: 'Purohit Sangh', path: '/about/PurohitSangh' },
+            { name: 'Temple Committee', path: '/about/TempleCommittee' }
           ]
         },
     // { name: 'About Us', path: '/about' },
@@ -188,7 +189,7 @@ const Navbar = () => {
     <div className="w-full">
 
                    {/* Top Info Bar */}
-  <div className="bg-white text-red-800 text-xs md:text-sm font-medium py-1  border-gray-300">
+  <div className="bg-white text-xs md:text-sm font-medium py-1  border-gray-300" style={{color: '#5d001e'}}>
     <div className="container mx-auto px-4 flex justify-between items-center text-center">
       <span className="w-1/3 text-left">Established on 1935</span>
       <span className="w-1/3 text-center pl-16">॥ श्री मार्कंडेय प्रसन्न ॥</span>
@@ -197,26 +198,27 @@ const Navbar = () => {
   </div>
 
       {/* Header */}
-      <header className="bg-white shadow-md p-4 flex items-center justify-between flex-wrap">
+      <header className="bg-white shadow-md p-4 flex items-center justify-between flex-wrap" style={{paddingLeft:'30%'}}>
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex pl-135%">
           <img
-            src="/logo.png"
+            src="/logo5.png"
             alt="Logo"
-            className="w-24 h-27 object-contain"
+            className="w-30 h-27 object-contain"
           />
         </div>
 
         {/* Title */}
-        <div className="text-center flex-1 hidden md:block">
-          <h1 className="text-xl md:text-3xl font-semibold text-purple-800">पद्मशाली पंच कमिटी</h1>
-          <h1 className="text-xl md:text-3xl font-bold text-red-800">పద్మశాలి పంచ్ కమిటి (పూణె)</h1>
-          <h3 className="text-base md:text-3xl font-semibold text-purple-800">PADMASHALI PANCH COMMITTEE, PUNE</h3>
+        <div className="flex-1 hidden md:block">
+          <h1 className="text-xl md:text-3xl font-bold" style={{color: '#5d001e'}}>पद्मशाली पंच कमिटी,पुणे</h1>
+          <h1 className="text-xl md:text-3xl font-bold" style={{color:'#EE4C7C'}}>పద్మశాలి పంచ్ కమిటి (పూణె)</h1>
+          <h3 className="text-base md:text-3xl font-bold" style={{color: '#5d001e'}}>PADMASHALI PANCH COMMITTEE, PUNE</h3>
           <p className="text-xs md:text-sm text-gray-600">
             1124 Bhavani Peth, Shri Padmashali Vitthal Rakhumai Mandir, Padmashali Puram, Pune 411042.
           </p>
         </div>
 
+      
         {/* Language Selector */}
         <select onChange={(e) => i18n.changeLanguage(e.target.value)} value={i18n.language}>
           <option value="en">English</option>
@@ -232,8 +234,8 @@ const Navbar = () => {
       </header>
 
       {/* Desktop Navbar */}
-      <nav className="bg-orange-500 text-white hidden md:block">
-        <ul className="flex justify-center space-x-6 py-3 text-sm md:text-base">
+      <nav className="hidden md:block" style={{background:'#9A1750'}}>
+        <ul className="flex justify-center space-x-6 py-3 text-sm md:text-base text-white">
           {menuItems.map((item) => (
             <li key={item.name} className="relative group">
               {!item.dropdown ? (
@@ -309,7 +311,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="bg-orange-500 text-white md:hidden">
+        <nav className="text-white md:hidden" style={{background:'#9A1750'}}>
           <ul className="flex flex-col items-center space-y-4 py-4">
             {menuItems.map((item) => (
               <li key={item.name} className="w-full text-center">

@@ -24,7 +24,7 @@ const Contact = () => {
     return (
     <section className="contact min-h-screen justify-center items-center flex p-4">
        <form onSubmit={handleSubmit}>
-        <h2>Contact Form</h2>
+        <h2 style={{color: '#5d001e'}}>Contact Form</h2>
         <div className="input-box">
           <label>Full Name</label>
           <input type="text" className='field' placeholder='Enter your name' name='full_name' value={form.full_name} onChange={handleChange} required/>
@@ -37,7 +37,7 @@ const Contact = () => {
           <label>Your Message</label>
           <textarea name="message" id="" className='field-message' placeholder='Enter your message' value={form.message} onChange={handleChange} required></textarea>
         </div>
-        <button type="submit">Send Message</button>
+        <button type="submit" style={{background: '#5d001e'}}>Send Message</button>
        </form>
     </section>
   )

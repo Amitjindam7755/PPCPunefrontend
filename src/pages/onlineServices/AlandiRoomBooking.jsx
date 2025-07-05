@@ -147,7 +147,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
-import { SendHorizontal } from 'lucide-react';
 import axios from 'axios';
 import { bookingSchema } from '../../FormValidation/bookingSchema';
 
@@ -184,8 +183,8 @@ const AlandiRoomBooking = () => {
 
   return (
     <div>
-      <div className="max-w-lg mx-auto p-8 rounded-lg shadow-lg bg-gray-50">
-        <h2 className="text-2xl font-bold text-center mb-6 text-red-900">{t('Room Booking')}</h2>
+      <div className="max-w-lg mx-auto p-8 mt-12 rounded-lg shadow-lg bg-gray-50">
+        <h2 className="text-2xl font-bold text-center mb-6" style={{color: '#5d001e'}}>{t('Room Booking')}</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           
           <div>
@@ -275,9 +274,9 @@ const AlandiRoomBooking = () => {
 
           <button
             type="submit"
-            className="flex items-center gap-2 w-[130px] bg-blue-600 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
+            className="flex items-center gap-2 w-[100px] bg-blue-600 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
           >
-            <SendHorizontal size={20} strokeWidth={1.5} />{t('Book Now')}
+            {t('Book')}
           </button>
         </form>
       </div>

@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 
   return (
     <div className="p-6 min-h-screen">
-      <h2 className="text-3xl font-bold text-center text-red-800 mb-6">{t('Magazines')}</h2>
+      <h2 className="text-3xl font-bold text-center mb-6" style={{color: '#5d001e'}}>{t('Magazines')}</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {events.map(event => {

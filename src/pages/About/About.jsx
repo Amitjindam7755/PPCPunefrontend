@@ -11,14 +11,14 @@ const About = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-10 px-4">
        {/* Page Title */}     
-        <h3 className="flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold text-red-800 mb-6">
+        <h3 className="flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold mb-6" style={{color: '#5d001e'}}>
           <Flower />
           <span>{t('About us')}</span>
           <Flower />
         </h3>
 
       {/* Content Box */}
-      <div className="w-full max-w-3xl bg-gray-100 p-6 md:p-8 rounded-lg shadow-md text-gray-800">
+      <div className="w-full max-w-3xl bg-gray-100 p-6 md:p-10 rounded-lg shadow-md text-gray-800">
         {/* <p className="text-base md:text-lg leading-relaxed whitespace-pre-line">
           पुण्यात <b>पुणे पद्मशाली समाजाबद्दल</b> बोलायचं झाल्यास, 
           हा समाज महाराष्ट्रात एक महत्वाचा घटक आहे. पुणे शहरात, इतर भागांप्रमाणे, 
@@ -90,7 +90,7 @@ const About = () => {
         </p>*/}
       
         <p
-          className="text-md text-gray-700"
+          className="text-md text-gray-700 mb-10 pt-5"
           dangerouslySetInnerHTML={{ __html: t('AboutUsParagraph') }}
         ></p>
 

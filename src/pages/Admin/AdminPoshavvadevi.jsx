@@ -3,10 +3,7 @@ import axios from 'axios';
 
 const AdminPoshavvadevi = () => {
   const [bookings, setBookings] = useState([]);
-
-  useEffect(() => {
-    fetchBookings();
-  }, []);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchBookings = async () => {
     try {
@@ -52,11 +49,28 @@ const AdminPoshavvadevi = () => {
       });
   };
 
+    useEffect(() => {
+    fetchBookings();
+  }, []);
+
+  // Filter logic
+  const filteredBookings = bookings.filter(booking => {
+    const combined = `${booking.fullName} ${booking.email} ${booking.phone} ${booking.pujaType}`;
+    return combined.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   return (
     <div className="p-4 max-w-full overflow-x-auto">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold text-orange-700">Poshavvadevi Abhishek Bookings</h2>
-        <div className="space-x-2">
+        <div className="flex flex-wrap gap-4">
+          <input
+            type="text"
+            placeholder="Search by name, email, phone, type..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border rounded px-2 py-1"
+          />
           <button onClick={downloadPDF} className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
             Export PDF
           </button>
@@ -81,7 +95,7 @@ const AdminPoshavvadevi = () => {
           </tr>
         </thead>
         <tbody>
-          {bookings.map((booking) => (
+          {/* {bookings.map((booking) => (
             <tr key={booking.id} className="hover:bg-orange-50">
               <td className="p-2 border">{booking.fullName}</td>
               <td className="p-2 border">{booking.email}</td>
@@ -100,7 +114,35 @@ const AdminPoshavvadevi = () => {
                 </button>
               </td>
             </tr>
-          ))}
+          ))} */}
+          {filteredBookings.map((booking) => {
+            const highlight = searchTerm && `${booking.fullName} ${booking.email} ${booking.phone} ${booking.pujaType}`.toLowerCase().includes(searchTerm.toLowerCase());
+            return (
+              <tr key={booking.id} className={`hover:bg-orange-50 ${highlight ? 'bg-yellow-200' : ''}`}>
+                <td className="p-2 border">{booking.fullName}</td>
+                <td className="p-2 border">{booking.email}</td>
+                <td className="p-2 border">{booking.phone}</td>
+                <td className="p-2 border">{booking.pujaDate}</td>
+                <td className="p-2 border">{booking.pujaTime}</td>
+                <td className="p-2 border">{booking.pujaType}</td>
+                <td className="p-2 border">{booking.participants}</td>
+                <td className="p-2 border">{booking.specialRequests}</td>
+                <td className="p-2 border text-center">
+                  <button
+                    onClick={() => deleteBooking(booking.id)}
+                    className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            )
+          })}
+          {filteredBookings.length === 0 && (
+            <tr>
+              <td colSpan="9" className="text-center py-4">No bookings found</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

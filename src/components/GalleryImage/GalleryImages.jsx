@@ -33,7 +33,7 @@ import { useTranslation } from 'react-i18next';
 
   return (
     <div className="p-6  min-h-screen">
-      <h2 className="text-3xl font-bold text-center text-red-800 mb-6">{t('Images Gallery')}</h2>
+      <h2 className="text-3xl font-bold text-center mb-6" style={{color: '#5d001e'}}>{t('Images Gallery')}</h2>
   
             {/* <div className="flex flex-col md:flex-row items-center justify-between mb-6 px-4">
               <form onSubmit={(e) => { e.preventDefault(); fetchImages(); }} className="mb-6 flex flex-wrap gap-4 items-end justify-center">
@@ -97,7 +97,7 @@ import { useTranslation } from 'react-i18next';
               {/* Title Section - Right Side */}
               <div className="mt-4 md:mt-0">
                 {/* <h2 className="text-2xl md:text-3xl font-bold text-red-800 text-center md:text-right">Images Gallery</h2> */}
-                <div className="text-right text-red-800 text-sm md:text-base">
+                <div className="text-right text-sm md:text-base" style={{color: '#5d001e'}}>
                   Showing images for:
                   <span className="ml-1 font-semibold">
                     {year || 'All Years'} {month && `> ${month.toString().padStart(2, '0')}`}

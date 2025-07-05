@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const AdminFamilyDashboard = () => {
   const [heads, setHeads] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchData = async () => {
     try {
@@ -34,16 +35,32 @@ const AdminFamilyDashboard = () => {
     fetchData();
   }, []);
 
+// Filter bookings if search term exists
+  const filteredHeads = heads.filter(h => {
+  const fullName = `${h.firstName} ${h.middleName} ${h.lastName} ${h.surname}`.toLowerCase();
+  return fullName.includes(searchTerm.toLowerCase());
+});
+
+
   return (
     <div className="p-4 max-w-full overflow-x-auto">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold text-orange-700">Registered Families (Head Details)</h2>
+       <div className='flex gap-2'>
+        <input 
+            type="text" 
+            placeholder="Search by name..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border rounded px-2 py-1"
+          />
         <button
           onClick={exportExcel}
           className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
         >
           Export Excel
         </button>
+       </div>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-[1600px] text-sm border rounded shadow">
@@ -69,7 +86,7 @@ const AdminFamilyDashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {heads.map((h) => (
+            {/* {heads.map((h) => (
               <tr key={h.id} className="hover:bg-orange-50 text-center">
                 <td className="p-2 border">{h.id}</td>
                 <td className="p-2 border">{h.firstName}</td>
@@ -87,14 +104,14 @@ const AdminFamilyDashboard = () => {
                 <td className="p-2 border">{h.workAddress}</td>
                 <td className="p-2 border">{h.whatsapp}</td>
                 <td className="p-2 border">{h.area}</td>
-                <td className="p-2 border">
+                <td className="p-2 border"> */}
                   {/* <button
                     onClick={() => deleteHead(h.id)}
                     className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
                   >
                     Delete
                   </button> */}
-                  <td className="p-2 border">
+                  {/* <td className="p-2 border">
                     <Link
                         to={`/admin/family/${h.id}`}
                         className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
@@ -105,7 +122,40 @@ const AdminFamilyDashboard = () => {
 
                 </td>
               </tr>
-            ))}
+            ))} */}
+            {filteredHeads.map((h) => {
+              const isHighlighted = searchTerm && (
+                `${h.firstName} ${h.middleName} ${h.lastName} ${h.surname}`.toLowerCase().includes(searchTerm.toLowerCase())
+              );
+              return (
+                <tr key={h.id} className={`hover:bg-orange-50 text-center ${isHighlighted ? 'bg-yellow-200' : ''}`}>
+                  <td className="p-2 border">{h.id}</td>
+                  <td className="p-2 border">{h.firstName}</td>
+                  <td className="p-2 border">{h.middleName}</td>
+                  <td className="p-2 border">{h.lastName}</td>
+                  <td className="p-2 border">{h.surname}</td>
+                  <td className="p-2 border">{h.fatherName}</td>
+                  <td className="p-2 border">{h.motherName}</td>
+                  <td className="p-2 border">{h.dob?.split('T')[0]}</td>
+                  <td className="p-2 border">{h.age}</td>
+                  <td className="p-2 border">{h.sex}</td>
+                  <td className="p-2 border">{h.education}</td>
+                  <td className="p-2 border">{h.occupation}</td>
+                  <td className="p-2 border">{h.status}</td>
+                  <td className="p-2 border">{h.workAddress}</td>
+                  <td className="p-2 border">{h.whatsapp}</td>
+                  <td className="p-2 border">{h.area}</td>
+                  <td className="p-2 border">
+                    <Link
+                      to={`/admin/family/${h.id}`}
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
+                    >
+                      View
+                    </Link>
+                  </td>
+                </tr>
+              )
+            })}
             {heads.length === 0 && (
               <tr>
                 <td colSpan="17" className="text-center py-4">No data available</td>

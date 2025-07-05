@@ -36,7 +36,7 @@ const Login = () => {
     <form onSubmit={handleLogin}>
       <input type="email" placeholder="Email" className='border p-1 mr-2' onChange={e => setForm({ ...form, email: e.target.value })} />
       <input type="password" placeholder="Password" className='border p-1' onChange={e => setForm({ ...form, password: e.target.value })} />
-      <button type="submit">Login</button>
+      <button type="submit" className='w-20' style={{background: '#5d001e'}}>Login</button>
     </form>
     </div>
   );

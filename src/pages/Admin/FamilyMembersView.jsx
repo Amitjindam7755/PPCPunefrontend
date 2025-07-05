@@ -5,17 +5,24 @@ import axios from 'axios';
 const FamilyMembersView = () => {
   const { headId } = useParams();
   const [members, setMembers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const exportExcel = () => {
   window.open(`http://localhost:8081/api/family-members/excel/${headId}`, '_blank');
 };
-
 
   useEffect(() => {
     axios.get(`http://localhost:8081/api/family-members/${headId}`)
       .then(res => setMembers(res.data))
       .catch(err => console.error('Error:', err));
   }, [headId]);
+
+  // search filtered
+  const filteredMembers = members.filter(m => {
+  const combined = `${m.name} ${m.fatherName} ${m.motherName} ${m.surname}`.toLowerCase();
+  return combined.includes(searchTerm.toLowerCase());
+});
+
 
   return (
     <div className="p-4">
@@ -29,7 +36,16 @@ const FamilyMembersView = () => {
                 Export Excel
             </button>
         </div>
-      {members.length === 0 ? (
+           {/* search term */}
+          <input
+            type="text"
+            placeholder="Search by name, father, mother, surname..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border rounded px-2 py-1 mt-2 mb-4"
+          />
+
+      {filteredMembers.length === 0 ? (
         <p>No family members found.</p>
       ) : (
         <div className="overflow-x-auto">
@@ -53,7 +69,7 @@ const FamilyMembersView = () => {
               </tr>
             </thead>
             <tbody>
-              {members.map((m) => (
+              {/* {members.map((m) => (
                 <tr key={m.id} className="text-center hover:bg-blue-50">
                   <td className="p-2 border">{m.name}</td>
                   <td className="p-2 border">{m.fatherName}</td>
@@ -70,7 +86,30 @@ const FamilyMembersView = () => {
                   <td className="p-2 border">{m.area}</td>
                   <td className="p-2 border">{m.relation}</td>
                 </tr>
-              ))}
+              ))} */}
+              {filteredMembers.map((m) => {
+                const isHighlighted = searchTerm && (
+                  `${m.name} ${m.fatherName} ${m.motherName} ${m.surname}`.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+                return (
+                  <tr key={m.id} className={`text-center hover:bg-blue-50 ${isHighlighted ? 'bg-yellow-200' : ''}`}>
+                    <td className="p-2 border">{m.name}</td>
+                    <td className="p-2 border">{m.fatherName}</td>
+                    <td className="p-2 border">{m.motherName}</td>
+                    <td className="p-2 border">{m.surname}</td>
+                    <td className="p-2 border">{m.dob?.split('T')[0]}</td>
+                    <td className="p-2 border">{m.age}</td>
+                    <td className="p-2 border">{m.sex}</td>
+                    <td className="p-2 border">{m.education}</td>
+                    <td className="p-2 border">{m.occupation}</td>
+                    <td className="p-2 border">{m.status}</td>
+                    <td className="p-2 border">{m.workAddress}</td>
+                    <td className="p-2 border">{m.whatsapp}</td>
+                    <td className="p-2 border">{m.area}</td>
+                    <td className="p-2 border">{m.relation}</td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>

@@ -41,7 +41,7 @@ const NewsItems = () => {
   }, []);
 
   return (
-    <div className="w-full bg-red-800 text-white flex items-center px-3 py-2">
+    <div className="w-full text-white flex items-center px-3 py-2" style={{background: '#5d001e'}}>
       <span className="news-label text-yellow-400 font-semibold whitespace-nowrap pr-3">
         {t('Updates & Notification')} &gt;&gt;&nbsp;
       </span>

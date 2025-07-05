@@ -58,7 +58,7 @@ const Matrimonials = () => {
 
   return (
     <div className="flex items-end justify-end min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('https://img2.shaadi.com/assests/2024/images/shaadi-north-desktop.webp')` }}>
-      <div className="bg-black bg-opacity-30 p-8 rounded-lg max-w-sm w-full text-white shadow-lg">
+      <div className="bg-black bg-opacity-30 p-8 rounded-lg max-w-sm w-full text-white shadow-lg mb-12">
         <h2 className="text-xl font-semibold mb-6">{t('Registration')}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -122,11 +122,11 @@ const Matrimonials = () => {
             />
           </div>
              {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
-          <button type="submit" className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded font-semibold">
+          <button type="submit" className="w-full text-white py-2 rounded font-semibold" style={{background:'#9A1750'}}>
             {t('Register for Free')}
           </button>
           <br />
-          <button type="submit" onClick={handleRedirect}  className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded font-semibold">
+          <button type="submit" onClick={handleRedirect}  className="w-full text-white py-2 rounded font-semibold" style={{background:'#9A1750'}}>
             {t('If you are register Login')}
           </button>
 

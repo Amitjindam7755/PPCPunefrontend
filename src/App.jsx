@@ -99,7 +99,6 @@ const App = () => {
     </div> 
     {showFooter && <Footer/>}           
      </>
-     
   )
 }
 
