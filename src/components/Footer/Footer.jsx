@@ -165,7 +165,7 @@ const Footer = () => {
        <hr className="w-full h-0.5 bg-gray-500 border-none my-4" />
 
       {/* Copyright */}
-      <p className="text-center text-sm">
+      <p className="text-center text-sm font-semibold">
         Copyright 2025 © Pune Padmashali Panch Committee | Developed By AJ Group of companies Pvt Ltd - All Rights Reserved.
       </p>
     </div>

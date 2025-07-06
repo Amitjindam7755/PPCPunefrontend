@@ -38,6 +38,14 @@ import PrivacyPolicy from './pages/Terms/PrivacyPolicy'
 import AnimatedBackground from './components/Animation/AnimatedBackground'
 // import ConfettiParty from './components/Animation/ConfettiParty'
 import { useLocation } from 'react-router-dom'
+import YuvajanSangh from './pages/About/YuvajanSangh'
+import CounsellingClub from './pages/About/CounsellingClub'
+import MahilaMandal from './pages/About/MahilaMandal'
+import PurohitSangh from './pages/About/PurohitSangh'
+import SeniorCitizen from './pages/About/SeniorCitizen'
+import ShikshanSanstha from './pages/About/ShikshanSanstha'
+import TempleCommittee from './pages/About/TempleCommittee'
+import VadhuVarMandal from './pages/About/VadhuVarMandal'
 
 
 
@@ -68,6 +76,14 @@ const App = () => {
           <Route path='/onlineServices/markandeyaAbhishek' element={<MarkandeyaAbhishek/>} />
           <Route path='/onlineServices/poshavvadeviAbhishek' element={<PoshavvadeviAbhishek/>} />
           <Route path='/onlineServices/shitaladeviAbhishek' element={<ShitaladeviAbhishek/>} />
+          <Route path='/about/YuvajanSangh' element={<YuvajanSangh/>} />
+          <Route path='/about/CounsellingClub' element={<CounsellingClub/>} />
+          <Route path='/about/MahilaMandal' element={<MahilaMandal/>} />
+          <Route path='/about/PurohitSangh' element={<PurohitSangh/>} />
+          <Route path='/about/SeniorCitizen' element={<SeniorCitizen/>} />
+          <Route path='/about/ShikshanSanstha' element={<ShikshanSanstha/>} />
+          <Route path='/about/TempleCommittee' element={<TempleCommittee/>} />
+          <Route path='/about/VadhuVarMandal' element={<VadhuVarMandal/>} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           {/* <Route path='/matches' element={<MatchingResult/>} /> */}
 

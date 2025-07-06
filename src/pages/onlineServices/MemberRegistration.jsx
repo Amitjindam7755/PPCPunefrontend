@@ -234,7 +234,7 @@ import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../FormValidation/validationSchema';
 import { useTranslation } from 'react-i18next';
-import { Trash2, UserRoundPlus, SendHorizontal } from 'lucide-react';
+// import { Trash2, UserRoundPlus, SendHorizontal } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
@@ -314,7 +314,7 @@ const MemberRegistration = () => {
           ['Middle Name', 'middleName'],
           ['Last Name', 'lastName'],
           ['Age', 'age'],
-          ['Sex', 'sex'],
+          // ['Sex', 'sex'],
           ['Education', 'education'],
           ['Occupation', 'occupation'],
           ['Status', 'status'],
@@ -331,6 +331,17 @@ const MemberRegistration = () => {
             {errors.head?.[name] && <p className="text-red-600 text-sm">{errors.head[name].message}</p>}
           </div>
         ))}
+
+        <div>
+          <label className="block text-sm font-medium">{t('Sex')}</label>
+          <select {...register(`head.sex`)} className="w-full p-2 border border-gray-300 rounded">
+            <option value="">{t('Select')}</option>
+            <option value="Male">{t('Male')}</option>
+            <option value="Female">{t('Female')}</option>
+            <option value="Other">{t('Other')}</option>
+          </select>
+          {errors.head?.sex && <p className="text-red-600 text-sm">{errors.head.sex.message}</p>}
+        </div>
 
         <div>
           <label className="block text-sm font-medium">{t('Date of Birth')}</label>
@@ -365,7 +376,7 @@ const MemberRegistration = () => {
               ['Mother\'s Name', 'motherName'],
               ['Surname', 'surname'],
               ['Age', 'age'],
-              ['Sex', 'sex'],
+              // ['Sex', 'sex'],
               ['Education', 'education'],
               ['Occupation', 'occupation'],
               ['Status', 'status'],
@@ -380,6 +391,17 @@ const MemberRegistration = () => {
                 {errors.familyMembers?.[index]?.[name] && <p className="text-red-600 text-sm">{errors.familyMembers[index][name].message}</p>}
               </div>
             ))}
+
+            <div>
+              <label className="block text-sm font-medium">{t('Sex')}</label>
+              <select {...register(`familyMembers.${index}.sex`)} className="w-full p-2 border border-gray-300 rounded">
+                <option value="">{t('Select')}</option>
+                <option value="Male">{t('Male')}</option>
+                <option value="Female">{t('Female')}</option>
+                <option value="Other">{t('Other')}</option>
+              </select>
+              {errors.familyMembers?.[index]?.sex && <p className="text-red-600 text-sm">{errors.familyMembers[index].sex.message}</p>}
+            </div>
 
             <div>
               <label className="block text-sm font-medium">{t('Date of Birth')}</label>
