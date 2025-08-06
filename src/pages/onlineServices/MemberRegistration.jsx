@@ -228,7 +228,7 @@
 
 
 
-
+// WORKING CODE
 import React from 'react';
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -245,8 +245,10 @@ const MemberRegistration = () => {
     register,
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
+    mode: 'onChange',
     resolver: yupResolver(schema),
     defaultValues: {
       head: {
@@ -294,6 +296,7 @@ const MemberRegistration = () => {
     try {
       await axios.post('http://localhost:8081/api/members/register', data);
       alert('Family registered successfully!');
+      reset();
     } catch (error) {
       console.error(error);
       alert('Submission failed');
@@ -303,10 +306,10 @@ const MemberRegistration = () => {
   const {t} = useTranslation();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="p-4 sm:p-6 max-w-5xl mx-auto bg-gray-50 rounded shadow">
+    <form onSubmit={handleSubmit(onSubmit)} className="p-4 sm:p-6 max-w-5xl mx-auto bg-gray-50 rounded shadow mt-5">
 
       <h1 className="text-2xl font-bold text-center mb-4" style={{color: '#5d001e'}}>{t('Family Registration Form')}</h1>
-      <h2 className="text-xl font-semibold" style={{color: '#5d001e'}}>{t('Head of the Family')}</h2>
+      <h2 className="text-xl font-semibold mb-4" style={{color: '#5d001e'}}>{t('Head of the Family')}</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {[
@@ -367,7 +370,7 @@ const MemberRegistration = () => {
         <div key={item.id} className="border bg-white p-4 rounded mb-4">
           <div className="flex justify-between">
             <h3 className="font-semibold">{t('Member')} {index + 1}</h3>
-            <button type="button"  onClick={() => remove(index)} className="flex items-center gap-1 text-white w-[70px] h-[33px] mb-4 pl-2">{t('Delete')}</button>
+            <button type="button"  onClick={() => remove(index)} className="flex items-center gap-1 bg-red-600 text-white w-[70px] h-[33px] mb-4 pl-2">{t('Delete')}</button>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             {[
@@ -427,12 +430,14 @@ const MemberRegistration = () => {
       <div className="flex gap-4 mt-4">
         <button type="button" onClick={() => append({
           name: '', fatherName: '', motherName: '', surname: '', dob: null, age: '', sex: '', education: '', occupation: '', status: '', workAddress: '', whatsapp: '', area: '', relation: ''
-        })} className="flex gap-2 items-center bg-blue-600 w-[135px] h-[40px] text-white px-4 py-2 rounded hover:bg-blue-700"> {t('Add Member')}</button>
+        })} className="flex gap-2 items-center bg-blue-500 w-[135px] h-[40px] text-white px-4 py-2 rounded hover:bg-blue-700"> {t('Add Member')}</button>
 
-        <button type="submit" className="flex text-center items-center gap-3 w-[90px] h-[41px] text-white px-4 py-2 rounded hover:bg-green-700" style={{background:'#9A1750'}}> {t('Submit')}</button>
+        <button type="submit" className="flex text-center items-center gap-3 w-[90px] h-[41px] text-white px-4 py-2 rounded hover:bg-brown-700 bg-brown"> {t('Submit')}</button>
       </div>
     </form>
   );
 };
 
 export default MemberRegistration;
+
+

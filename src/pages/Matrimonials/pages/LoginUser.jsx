@@ -40,7 +40,7 @@ const LoginUser = () => {
       }}
     >
       <div className="bg-white bg-opacity-30 rounded-lg py-15 px-5 shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">{t('Catalogue Login')}</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-red-950">{t('Catalogue Login')}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
@@ -51,7 +51,8 @@ const LoginUser = () => {
             onChange={handleChange}
             required
           />
-          <input
+          <div className=''>
+            <input
             type="password"
             name="password"
             placeholder="Password"
@@ -60,7 +61,11 @@ const LoginUser = () => {
             onChange={handleChange}
             required
           />
-          <p className='text-xs text-orange-500'>{t('use free registration password here')}</p>
+          <span className='flex'>
+          <h3 className='Loginstar'>*</h3>
+          <p className='text-xs text-black pl-1'>{t('use free registration password here')}</p>
+          </span>
+          </div>
           <button
             type="submit"
             className="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-700 transition"
@@ -73,9 +78,9 @@ const LoginUser = () => {
           </button>
         </form>
         <p className="text-xs text-gray-600 mt-4 text-center">
-          By logging in, you agree to our{' '}
-          <a href="#" className="text-orange-500 underline">Terms</a> and{' '}
-          <a href="#" className="text-orange-500 underline">Privacy Policy</a>.
+          {t('By logging in, you agree to our')}{' '}
+          <a href="#" className="text-orange-500 underline">{t('Terms')}</a> {t('and')}{' '}
+          <a href="/privacy-policy" className="text-orange-500 underline">{t('Privacy Policy')}</a>.
         </p>
       </div>
     </div>

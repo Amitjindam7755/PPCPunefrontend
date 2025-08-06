@@ -2,12 +2,15 @@
 import React from 'react';
 import Slider from 'react-slick';
 import './Header.css'
+// import './indexx.css'
 import NewsItems from '../NewsItems/NewsItems';
 import EventGallery from '../EventGallery/EventGallery';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import { useTranslation } from 'react-i18next';
+import Navbar from '../Navbar/Navbar';
 
 const Header = () => {
   const [showYoutubePopup, setShowYoutubePopup] = React.useState(false);
@@ -21,22 +24,49 @@ const Header = () => {
   ];
 
   const verticalSlides = [
-  { id: 1, image: 'carouselImages/adv1.jpg',alt:'adv1' },
-  { id: 2, image: 'carouselImages/adv2.jpg',alt:'adv2' },
+  { id: 1, image: 'carouselImages/laxmiWatch.jpg',alt:'adv1' },
+  { id: 2, image: 'carouselImages/Peshwai.jpg',alt:'adv2' },
+  { id: 5, image: 'carouselImages/adv1.jpg',alt:'adv5' },
+  { id: 6, image: 'carouselImages/adv2.jpg',alt:'adv6' },
   { id: 3, image: 'carouselImages/adv3.jpg',alt:'adv3' },
   { id: 4, image: 'carouselImages/adv4.jpg',alt:'adv4' },
+  
 ];
+
+
+// Custom Left Arrow
+const PrevArrow = ({ onClick }) => (
+  <div
+    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-white bg-black bg-opacity-50 p-2 rounded-full"
+    onClick={onClick}
+  >
+    <FaArrowLeft size={20} />
+  </div>
+);
+
+// Custom Right Arrow
+const NextArrow = ({ onClick }) => (
+  <div
+    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-white bg-black bg-opacity-50 p-2 rounded-full"
+    onClick={onClick}
+  >
+    <FaArrowRight size={20} />
+  </div>
+);
 
   // Slick slider settings
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1500,
+    speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 6000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
+
 
   const [subscriber, setSubscriber] = React.useState('');
   const [message, setMessage] = React.useState('');
@@ -71,12 +101,12 @@ const handleSubscribe = async (e) => {
   return (
     <>
       <NewsItems />
-      <div className="flex flex-col md:flex-row items-start justify-center gap-10 px-4 mb-10 md:px-16 py-12 bg-white min-h-screen shadow-none">
+      <div className="content flex flex-col md:flex-row items-start justify-center gap-10 px-4 mb-10 md:px-16 py-12 min-h-screen shadow-none bg-white">
         {/* Carousel on the left */}
         <div className="w-full overflow-hidden">
           <Slider {...settings}>
             {slides.map((slide) => (
-              <div key={slide.id} className="flex justify-center items-center w-[1000px] h-[400px] bg-gray-50 rounded-lg">
+              <div key={slide.id} className="carousel flex justify-center items-center w-[1000px] h-[406px] bg-black rounded-lg">
                 <img
                   src={slide.image}
                   alt={slide.alt}
@@ -88,7 +118,7 @@ const handleSubscribe = async (e) => {
         </div>
 
         {/* Text content in the middle */}
-        <div className="w-full md:w-1/2 mt-6 md:mt-0 px-2 md:px-6  text-start md:text-end whitespace-normal break-words bg-gray-50">
+        <div className="w-full md:w-1/2 mt-6 md:mt-0 px-2 md:px-6  text-start md:text-end whitespace-normal break-words bg-black rounded-lg">
           <div className="w-full overflow-hidden">
               <Slider
                 vertical={true}
@@ -117,7 +147,7 @@ const handleSubscribe = async (e) => {
                 <br />
                 <br />
       {/* Upcoming Events Section */}
- <div className="text-center py-6 mt-10 bg-purple-50 ">
+ <div className="subscribtion-box text-center py-6 mt-10 bg-purple-50 ">
         <h4 className="text-xl font-semibold" style={{color: '#5d001e'}}>{t('Upcoming Events... (Ex. Vadhu Var Melava, Sports, Any other activites etc..)')}</h4>
           <div className="flex flex-col md:flex-row gap-6 p-4 justify-center items-start">
   {/* Subscription Box */}
@@ -133,8 +163,9 @@ const handleSubscribe = async (e) => {
       />
       <button
         type="submit"
-        className="text-white px-4 py-2 rounded-md transition w-full sm:w-auto" style={{background: '#9A1750'}}
+        className="text-white px-4 py-2 mb-7 rounded-md transition w-full sm:w-auto bg-brown hover:bg-brown-700" 
       >
+        {/* style={{background: '#9A1750'}} */}
         Subscribe
       </button>
     </form>

@@ -251,7 +251,7 @@ const ProfileCard = () => {
             type="submit"
             className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded font-semibold transition duration-200"
           >
-            Create
+            {t('Create')}
           </button>
         </form>
       </div>

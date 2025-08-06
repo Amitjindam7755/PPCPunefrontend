@@ -46,17 +46,20 @@ import SeniorCitizen from './pages/About/SeniorCitizen'
 import ShikshanSanstha from './pages/About/ShikshanSanstha'
 import TempleCommittee from './pages/About/TempleCommittee'
 import VadhuVarMandal from './pages/About/VadhuVarMandal'
+import Career from './pages/Career/Career'
+import AdminCareer from './pages/Admin/AdminCareer'
 
 
 
 const App = () => {
 
   const location = useLocation();
-  const showFooter = location.pathname === '/' || location.pathname === '/contact'
+  const showFooter = location.pathname === '/'
+  // || location.pathname === '/contact' 
 
    return (
     <>
-    <AnimatedBackground/>
+    {/* <AnimatedBackground/> */}
     <div style={{position:"relative", zIndex: 1}}>
       <Navbar/>
         <Routes>
@@ -68,7 +71,9 @@ const App = () => {
           <Route path='/matrimonials' element={<Matrimonials/>}/>
           <Route path='/managementTeam' element={<ManagementTeam/>} />
           <Route path='/magazines' element={<Magazines/>}/>
+          <Route path='/career' element={<Career/>}/>
           <Route path='/contact' element={<Contact/>}/>
+          <Route path='/' />
           <Route path='/profilecard' element={<ProfileCard/>} />
           <Route path='/loginUser' element={<LoginUser/>} />
           <Route path='/matches' element={<Matches/>} />
@@ -108,12 +113,13 @@ const App = () => {
     <Route path="poshavvadevi-bookings" element={<AdminPoshavvadevi/>} />
     <Route path="shitaladevi-bookings" element={<AdminShitaladevi/>}/>
     <Route path="heads" element={<AdminFamilyDashboard/>} />
+    <Route path="career" element={<AdminCareer/>} />
      {/* members/families */}
      </Route> 
      <Route path="/admin/family/:headId" element={<FamilyMembersView/>} />
       </Routes>
     </div> 
-    {showFooter && <Footer/>}           
+    {showFooter && <Footer/>}         
      </>
   )
 }

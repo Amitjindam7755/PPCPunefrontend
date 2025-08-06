@@ -71,10 +71,14 @@
 import React, { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 const AdminDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
+
+  const {t} = useTranslation();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -90,91 +94,98 @@ const AdminDashboard = () => {
         } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-20`}
       >
         <div className="p-4">
-          <h2 className="text-xl font-bold mb-6">Admin Dashboard</h2>
+          <h2 className="text-xl font-bold mb-6">{t('Admin Dashboard')}</h2>
           <nav className="space-y-2">
             <Link
               to="contacts"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Contacts
+              {t('Contacts')}
             </Link>
             <Link
               to="notifications"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Notifications
+              {t('Notifications')}
             </Link>
             <Link
               to="subscribers"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Subscribers
+              {t('Subscribers')}
             </Link>
             <Link
               to="events"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Events
+              {t('Events')}
             </Link>
             <Link
               to="gallery"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Gallery
+              {t('Gallery')}
             </Link>
             <Link
               to="magazines"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Magazines
+              {t('Magazines')}
             </Link>
             <Link
               to="profiles"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Matrimonial Profiles
+              {t('Matrimonial Profiles')}
             </Link>
             <Link
               to="bookings"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Alandi Room Bookings
+              {t('Alandi Room Bookings')}
             </Link>
             <Link
               to="abhishek-bookings"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Markandeya Abhishek Bookings
+              {t('Markandeya Abhishek Bookings')}
             </Link>
             <Link
               to="poshavvadevi-bookings"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Poshavvadevi Abhishek Bookings
+              {t('Poshavvadevi Abhishek Bookings')}
             </Link>
             <Link
               to="shitaladevi-bookings"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Shitaladevi Abhishek Bookings
+              {t('Shitaladevi Abhishek Bookings')}
             </Link>
             <Link
               to="heads"
               className="block px-4 py-2 rounded hover:bg-gray-700"
               onClick={() => setIsSidebarOpen(false)}
             >
-              Family Details
+              {t('Family Details')}
+            </Link>
+            <Link
+              to="career"
+              className="block px-4 py-2 rounded hover:bg-gray-700"
+              onClick={() => setIsSidebarOpen(false)}
+            >
+              {t('Employment')}
             </Link>
           </nav>
         </div>
@@ -184,7 +195,7 @@ const AdminDashboard = () => {
             onClick={handleLogout}
             className="bg-red-500 text-white px-4 py-2 rounded"
           >
-            Logout
+            {t('Logout')}
           </button>
         </div>
       </div>

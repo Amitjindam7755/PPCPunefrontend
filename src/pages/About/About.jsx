@@ -13,7 +13,7 @@ const About = () => {
        {/* Page Title */}     
         <h3 className="flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold mb-6" style={{color: '#5d001e'}}>
           <Flower />
-          <span>{t('About us')}</span>
+          <span>{t('About')}</span>
           <Flower />
         </h3>
 

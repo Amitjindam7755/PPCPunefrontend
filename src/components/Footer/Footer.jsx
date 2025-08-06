@@ -90,6 +90,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { RiTwitterXFill } from "react-icons/ri";
 import { SlSocialFacebook } from "react-icons/sl";
+import { Mail, Phone } from 'lucide-react';
 import VisitCounter from '../../VisitCounter';
 
 const Footer = () => {
@@ -97,7 +98,8 @@ const Footer = () => {
   const {t} =useTranslation();
 
   return (
-    <div className="bg-gray-800 text-gray-300 flex flex-col items-center gap-6 px-4 md:px-16 py-10">
+    <div className="footer text-gray-300 flex flex-col items-center gap-6 px-4 md:px-16 py-10">
+      {/* bg-gray-800 */}
       {/* Footer Content */}
       <div className="w-full grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 md:gap-20">
         
@@ -110,18 +112,32 @@ const Footer = () => {
               alt="Facebook"
               className="w-10 h-10 cursor-pointer"
             /> */}
-            <SlSocialFacebook className='w-10 h-10 cursor-pointer' />
+            <a
+              href="https://www.facebook.com/padmashalisamajpune/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-600"
+            >
+              <SlSocialFacebook className='w-7 h-7 cursor-pointer' />
+            </a>
             {/* <img
               src={assets.twitter_icon}
               alt="Twitter"
               className="w-10 h-10 cursor-pointer"
             /> */}
-                <RiTwitterXFill className='w-10 h-10 cursor-pointer' />
+            <a
+              href="https://twitter.com/your-twitter-handle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black"
+            >
+              <RiTwitterXFill className='w-7 h-7 cursor-pointer' />
+            </a>
           </div>
 
           {/* Google Map */}
           <div className="w-full h-64">
-            <h2 className="text-lg font-bold mb-2">Our Location</h2>
+            <h2 className="text-lg font-bold mb-2">{t('Our Location')}</h2>
             <iframe
               title="Padmashali Panch Committee Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15133.247982366205!2d73.8478910652052!3d18.51479799238132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c041a000157f%3A0xf3146745b2eef860!2sShri%20Vithhal%20Rakhumai%20Mandir!5e0!3m2!1sen!2sin!4v1750243667982!5m2!1sen!2sin"
@@ -140,7 +156,7 @@ const Footer = () => {
           <ul className="flex flex-col gap-3">
             <li className="cursor-pointer hover:underline"><Link to="/">{t('Home')}</Link></li>
             <li className="cursor-pointer hover:underline"><Link to="/about">{t('About Us')}</Link></li>
-            <li className="cursor-pointer hover:underline"><Link to="/privacy-policy" className='underline block'>Privacy Policy</Link></li>
+            <li className="cursor-pointer hover:underline"><Link to="/privacy-policy">{t('Privacy Policy')}</Link></li>
               <div id="google_translate_element"></div>
           </ul>
         </div>
@@ -152,8 +168,16 @@ const Footer = () => {
               <li className="text-wrap">
                 {t('1124 Bhavani Peth, Shri Padmashali Vitthal Rakhumai Mandir, Padmashali Puram, Pune 411042.')}
               </li>
-              <li>+1-212-456-7890</li>
-              <li>contact@ignitel.com</li>
+              <span className='flex w-full gap-1'>
+                <Phone size={17} strokeWidth={0.75}  className='mt-1'/> 
+                {/* <li>+1-212-456-7890</li> */}
+                <a href="tel:+12124567890" className="hover:underline">+1-212-456-7890</a>
+              </span>
+              <span className='flex w-full gap-1'>
+                <Mail size={16} strokeWidth={0.75} className='mt-1' />
+               {/* <li>contact@ignitel.com</li> */}
+               <a href="mailto:contact@ignitel.com" className="hover:underline">contact@ignitel.com</a>
+              </span>
             </ul>
             {/* <VisitCounter/> */}
           </div>
@@ -162,11 +186,11 @@ const Footer = () => {
         <LiveUserCounter/>
       </div> */}
        {/* Divider */}
-       <hr className="w-full h-0.5 bg-gray-500 border-none my-4" />
+       <hr className="w-full h-0.5 bg-gray-500 border-none mt-11" />
 
       {/* Copyright */}
       <p className="text-center text-sm font-semibold">
-        Copyright 2025 © Pune Padmashali Panch Committee | Developed By AJ Group of companies Pvt Ltd - All Rights Reserved.
+        {t('Copyright 2025 © Pune Padmashali Panch Committee | Developed By AJ Group of companies Pvt Ltd - All Rights Reserved.')}
       </p>
     </div>
   );

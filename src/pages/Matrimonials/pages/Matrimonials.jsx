@@ -57,7 +57,7 @@ const Matrimonials = () => {
   };
 
   return (
-    <div className="flex items-end justify-end min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('https://img2.shaadi.com/assests/2024/images/shaadi-north-desktop.webp')` }}>
+    <div className="flex items-start justify-start min-h-screen bg-cover bg-end pl-3" style={{ backgroundImage: `url('https://img2.shaadi.com/assests/2024/images/shaadi-north-desktop.webp')` }}>
       <div className="bg-black bg-opacity-30 p-8 rounded-lg max-w-sm w-full text-white shadow-lg mb-12">
         <h2 className="text-xl font-semibold mb-6">{t('Registration')}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -131,10 +131,10 @@ const Matrimonials = () => {
           </button>
 
           <p className="text-xs text-center mt-2">
-            By clicking on 'Register Free', you confirm that you accept the
-            <span className="text-red-400 cursor-pointer"> Terms of Use </span>
-            and
-            <span className="text-red-400 cursor-pointer"> Privacy Policy</span>
+            {t('By clicking on')} '{t('Register Free')}', {t('you confirm that you accept the')}
+            <span className="text-red-400 cursor-pointer">{t('Terms of Use')}</span>
+            {t('and')}
+            <span className="text-red-400 cursor-pointer"><a href="/privacy-policy">{t('Privacy Policy')}</a>.</span>
           </p>
         </form>
       </div>

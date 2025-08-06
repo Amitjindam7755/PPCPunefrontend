@@ -8,7 +8,7 @@
 
 * {
   font-family: 'Poppins';
-  font-size: 14px;
+  font-size: 15px;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -22,4 +22,48 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.footer{
+  background-color: #1e1e1e;
+}
+
+.lang{
+  color: #5d001e;
+}
+
+.img-avtar{
+  border-radius: 50%;
+}
+
+.navbar{
+  /* background-image: linear-gradient(to bottom, #ff6e2f, #fd722b, #fb7527, #f97922, #f77c1e, #f8831a, #f98a15, #f99110, #fc9d08, #fdaa02, #ffb600, #ffc300); */
+  background-color: #f49212;
+  color: white;
+  /* color: white; */
+  /* background-image: linear-gradient(to bottom, #ff6e2f, #fd722b, #fb7527, #f97922, #f77c1e, #f8831a, #f98a15, #f99110, #fc9d08, #fdaa02, #ffb600, #ffc300); */
+}
+/* .navbar-text{
+  color: white;
+} */
+
+.mobile-nav{
+  background-image: linear-gradient(to bottom, #ff6e2f, #fd722b, #fb7527, #f97922, #f77c1e, #f8831a, #f98a15, #f99110, #fc9d08, #fdaa02, #ffb600, #ffc300);
+  color: #1e1e1e;
+}
+
+.admin-login{
+  background-color: #f98a15;
+  /* #5d001e */
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.Loginstar{
+    color: red;
 }

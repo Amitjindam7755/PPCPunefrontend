@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
 import './Contact.css'
 import axios from 'axios'
+import VerticalFooter from '../../components/Footer/VerticalFooter';
+import ContactFooter from '../../components/Footer/contactFooter';
+import { useTranslation } from 'react-i18next';
+
 
 const Contact = () => {
+
+  const {t} = useTranslation();
+
 
     const [form, setForm] = useState({full_name:'', email:'', message:''});
      
@@ -22,26 +29,34 @@ const Contact = () => {
       }
     };
     return (
-    <section className="contact min-h-screen justify-center items-center flex p-4">
+  <div className='min-h-screen'>
+    <section className="contact min-h-screen justify-center items-center flex">
+      <VerticalFooter/>
        <form onSubmit={handleSubmit}>
-        <h2 style={{color: '#5d001e'}}>Contact Form</h2>
+        <h2 style={{color: '#5d001e'}}>{t('Get In Touch')}</h2>
         <div className="input-box">
-          <label>Full Name</label>
+          <label>{t('Full Name')}</label>
           <input type="text" className='field' placeholder='Enter your name' name='full_name' value={form.full_name} onChange={handleChange} required/>
         </div>
         <div className="input-box">
-          <label>Email Address</label>
+          <label>{t('Email Address')}</label>
           <input type="email" className='field' placeholder='Enter your email' name='email' value={form.email} onChange={handleChange} required/>
         </div>
         <div className="input-box">
-          <label>Your Message</label>
+          <label>{t('Your Message')}</label>
           <textarea name="message" id="" className='field-message' placeholder='Enter your message' value={form.message} onChange={handleChange} required></textarea>
         </div>
-        <button type="submit" style={{background: '#5d001e'}}>Send Message</button>
+        <button type="submit" className='submit-btn'>{t('Send Message')}</button>
        </form>
     </section>
+    <div className='py-20'>
+    <ContactFooter/>
+    </div>
+  </div>
   )
 }
 
 export default Contact
+
+
 

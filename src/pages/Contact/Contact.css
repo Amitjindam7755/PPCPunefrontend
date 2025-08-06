@@ -10,7 +10,7 @@
 }
 
 form{
-    max-width: 450px;
+    max-width: 380px;
     width: 100%;
     background: #fff;
     padding: 25px ;
@@ -36,8 +36,8 @@ form .input-box{
     border: 2px solid #ddd;
     outline: none;
     border-radius: 6px;
-    padding:12px 15px;
-    font-size: 16px;
+    padding:10px;
+    font-size: 14px;
     color: #333;
     box-sizing: border-box;
     /* margin-top: 8px; */
@@ -51,12 +51,12 @@ form .input-box{
     border-radius: 6px;
     border: 2px solid #ddd;
     resize: vertical;
-    padding-top: 10px;
+    padding: 10px;
 }
 
 form button{
-    width: 33%;
-    height: 43%;
+    width: 37%;
+    height: 48px;
     background: rgb(180, 54, 54);
     border: none;
     color: white;

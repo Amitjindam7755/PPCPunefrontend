@@ -143,12 +143,169 @@
 // export default AlandiRoomBooking;
 
 
+
+// LAST Working
+// import React from 'react';
+// import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import { useTranslation } from 'react-i18next';
+// import axios from 'axios';
+// import { bookingSchema } from '../../FormValidation/bookingSchema';
+
+// const AlandiRoomBooking = () => {
+//   const {
+//     register,
+//     handleSubmit,
+//     reset,
+//     formState: { errors }
+//   } = useForm({
+//     resolver: yupResolver(bookingSchema)
+//   });
+
+//   const onSubmit = async (data) => {
+//     try {
+//       const response = await axios.post('http://localhost:8081/api/bookings', data, {
+//         responseType: 'blob'
+//       });
+
+//       const blob = new Blob([response.data], { type: 'application/pdf' });
+//       const link = document.createElement('a');
+//       link.href = window.URL.createObjectURL(blob);
+//       link.download = 'booking_confirmation.pdf';
+//       link.click();
+//       alert('Booking submitted successfully!');
+//       reset(); // Reset form after successful submission
+//     } catch (err) {
+//       console.error(err);
+//       alert('Submission failed.');
+//     }
+//   };
+
+//   const {t} = useTranslation();
+
+//   return (
+//     <div>
+//       <div className="max-w-xl mx-auto p-8 ">
+//         <h2 className="text-2xl font-bold text-center mb-6" style={{color: '#5d001e'}}>{t('Room Booking')}</h2>
+//         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          
+//           <div>
+//             <input
+//               type="text"
+//               placeholder={t('Full Name')}
+//               {...register('fullName')}
+//               className="w-full p-3 h-[35px] border rounded"
+//             />
+//             <p className="text-red-600 text-sm">{errors.fullName?.message}</p>
+//           </div>
+
+//           <div>
+//             <input
+//               type="email"
+//               placeholder={t('Email Address')}
+//               {...register('email')}
+//               className="w-full p-3 h-[35px] border rounded"
+//             />
+//             <p className="text-red-600 text-sm">{errors.email?.message}</p>
+//           </div>
+
+//           <div>
+//             <input
+//               type="tel"
+//               placeholder={t('Mobile Number')}
+//               {...register('phone')}
+//               className="w-full p-3 h-[35px] border rounded"
+//             />
+//             <p className="text-red-600 text-sm">{errors.phone?.message}</p>
+//           </div>
+
+//           <div className="flex flex-col md:flex-row gap-4">
+//             <div className="w-full">
+//               <label htmlFor="">{t('Check In')}</label>
+//               <input
+//                 type="date"
+//                 {...register('checkIn')}
+//                 className="w-full p-3 h-[35px] border rounded"
+//               />
+//               <p className="text-red-600 text-sm">{errors.checkIn?.message}</p>
+//             </div>
+
+//             <div className="w-full">
+//               <label htmlFor="">{t('Check Out')}</label>
+//               <input
+//                 type="date"
+//                 {...register('checkOut')}
+//                 className="w-full p-3 h-[35px] border rounded"
+//               />
+//               <p className="text-red-600 text-sm">{errors.checkOut?.message}</p>
+//             </div>
+//           </div>
+
+//           <div className="flex flex-col md:flex-row gap-4">
+//           <div className='w-full'>
+//             <select {...register('roomType')} className="w-full p-3 h-[41px] border rounded">
+//               <option value="">{t('Select Room Type')}</option>
+//               <option value="standard">Standard Room</option>
+//               <option value="deluxe">Deluxe Room</option>
+//               <option value="suite">Suite</option>
+//             </select>
+//             <p className="text-red-600 text-sm">{errors.roomType?.message}</p>
+//           </div>
+
+//           <div className='w-full'>
+//             <input
+//               type="number"
+//               min="1"
+//               placeholder={t('Number of Guests')}
+//               {...register('guests')}
+//               className="w-full p-3 h-[35px] border rounded"
+//             />
+//             <p className="text-red-600 text-sm">{errors.guests?.message}</p>
+//           </div>
+//         </div>
+
+//           <div>
+//             <textarea
+//               placeholder={t('Any special requests?')}
+//               {...register('specialRequests')}
+//               className="w-full p-3 border rounded"
+//               rows="3"
+//             />
+//             <p className="text-red-600 text-sm">{errors.specialRequests?.message}</p>
+//           </div>
+
+//           <button
+//             type="submit"
+//             className="flex items-center gap-2 w-[70px] bg-blue-500 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
+//           >
+//             {t('Book')}
+//           </button>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default AlandiRoomBooking;
+
+
+
+// LAST working
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { bookingSchema } from '../../FormValidation/bookingSchema';
+
+// Utility to format date to YYYY-MM-DD
+const formatDateToString = (date) => {
+  const d = new Date(date);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
 const AlandiRoomBooking = () => {
   const {
@@ -162,7 +319,14 @@ const AlandiRoomBooking = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('http://localhost:8081/api/bookings', data, {
+      // Format dates to YYYY-MM-DD before sending
+      const formattedData = {
+        ...data,
+        checkIn: formatDateToString(data.checkIn),
+        checkOut: formatDateToString(data.checkOut)
+      };
+
+      const response = await axios.post('http://localhost:8081/api/bookings', formattedData, {
         responseType: 'blob'
       });
 
@@ -179,14 +343,13 @@ const AlandiRoomBooking = () => {
     }
   };
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
-    <div>
-      <div className="max-w-lg mx-auto p-8 mt-12 rounded-lg shadow-lg bg-gray-50">
-        <h2 className="text-2xl font-bold text-center mb-6" style={{color: '#5d001e'}}>{t('Room Booking')}</h2>
+    <div className='flex items-center justify-center min-h-screen pb-9'>
+      <div className="max-w-xl mx-auto p-8">
+        <h2 className="text-2xl font-bold text-center mb-6" style={{ color: '#5d001e' }}>{t('Room Booking')}</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          
           <div>
             <input
               type="text"
@@ -219,7 +382,7 @@ const AlandiRoomBooking = () => {
 
           <div className="flex flex-col md:flex-row gap-4">
             <div className="w-full">
-              <label htmlFor="">{t('Check In')}</label>
+              <label htmlFor="checkIn">{t('Check In')}</label>
               <input
                 type="date"
                 {...register('checkIn')}
@@ -229,7 +392,7 @@ const AlandiRoomBooking = () => {
             </div>
 
             <div className="w-full">
-              <label htmlFor="">{t('Check Out')}</label>
+              <label htmlFor="checkOut">{t('Check Out')}</label>
               <input
                 type="date"
                 {...register('checkOut')}
@@ -240,27 +403,27 @@ const AlandiRoomBooking = () => {
           </div>
 
           <div className="flex flex-col md:flex-row gap-4">
-          <div className='w-full'>
-            <select {...register('roomType')} className="w-full p-3 h-[41px] border rounded">
-              <option value="">{t('Select Room Type')}</option>
-              <option value="standard">Standard Room</option>
-              <option value="deluxe">Deluxe Room</option>
-              <option value="suite">Suite</option>
-            </select>
-            <p className="text-red-600 text-sm">{errors.roomType?.message}</p>
-          </div>
+            <div className="w-full">
+              <select {...register('roomType')} className="w-full p-3 h-[41px] border rounded">
+                <option value="">{t('Select Room Type')}</option>
+                <option value="standard">Standard Room</option>
+                <option value="deluxe">Deluxe Room</option>
+                <option value="suite">Suite</option>
+              </select>
+              <p className="text-red-600 text-sm">{errors.roomType?.message}</p>
+            </div>
 
-          <div className='w-full'>
-            <input
-              type="number"
-              min="1"
-              placeholder={t('Number of Guests')}
-              {...register('guests')}
-              className="w-full p-3 h-[35px] border rounded"
-            />
-            <p className="text-red-600 text-sm">{errors.guests?.message}</p>
+            <div className="w-full">
+              <input
+                type="number"
+                min="1"
+                placeholder={t('Number of Guests')}
+                {...register('guests')}
+                className="w-full p-3 h-[35px] border rounded"
+              />
+              <p className="text-red-600 text-sm">{errors.guests?.message}</p>
+            </div>
           </div>
-        </div>
 
           <div>
             <textarea
@@ -274,7 +437,7 @@ const AlandiRoomBooking = () => {
 
           <button
             type="submit"
-            className="flex items-center gap-2 w-[100px] bg-blue-600 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
+            className="flex items-center gap-2 w-[70px] bg-blue-500 text-white p-3 rounded hover:bg-blue-700 h-[38px] text-center"
           >
             {t('Book')}
           </button>
@@ -285,4 +448,6 @@ const AlandiRoomBooking = () => {
 };
 
 export default AlandiRoomBooking;
+
+
 

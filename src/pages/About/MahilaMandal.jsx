@@ -6,19 +6,19 @@ const MahilaMandal = () => {
 
   const members = [
     // { name: "श्री रवींद्र महादेव रच्चा", role: "सरपंच", image:'/members/MemberPhoto.jpg' },
-    { name: "श्री. नंदकुमार ", role: "अध्यक्ष" },
-    { name: "श्री. संजय ", role: "उपाध्यक्ष" },
-    { name: "श्री. ज्ञानेश्वर ", role: "चिटणीस" },
+    { name: "श्रीमती. शुभांगीताई अंदे ", role: "सदस्या" },
+    { name: "सौ. लक्ष्मी कोंडा ", role: "सदस्या" },
+    { name: "सौ. अरुणा सापा ", role: "निमंत्रित" },
   ];
 
   return (
-    <div>
+    <div className='max-w-screen-xl mx-auto px-43'>
       <h1 className='flex items-center justify-center gap-3 text-3xl md:text-4xl font-bold mb-6 mt-4' style={{ color: '#5d001e' }}>
         {t('Mahila Mandali')}
       </h1>
-      <h2 className='flex items-center justify-center py-2 font-semibold text-xl mt-9 mb-6' style={{ color: '#5d001e' }}>
+      {/* <h2 className='flex items-center justify-center py-2 font-semibold text-xl mt-9 mb-6' style={{ color: '#5d001e' }}>
         विश्वस्त
-      </h2>
+      </h2> */}
 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
         {members.map((member, index) => (

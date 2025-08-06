@@ -30,3 +30,14 @@
   height: 400px;
   overflow: hidden;
 }
+
+
+/* In Header.css */
+.slick-prev {
+  left: 10px !important;
+  z-index: 1000;
+}
+.slick-next {
+  right: 10px !important;
+  z-index: 1000;
+}

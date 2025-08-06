@@ -55,7 +55,7 @@ const {t} = useTranslation();
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-gray-50 p-8 rounded-lg shadow-lg max-w-lg w-full">
+      <div className="max-w-xl mx-auto p-8">
         <h2 className="text-2xl font-bold text-center mb-6" style={{color: '#5d001e'}}>{t('Shitaladevi Abhishek Booking')}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -135,8 +135,9 @@ const {t} = useTranslation();
           />
           <button
             type="submit"
-            className="flex items-center text-center gap-2 w-[70px] h-[45px] text-white p-3 rounded" style={{background:'#9A1750'}}
+            className="flex items-center justify-center text-center gap-2 w-[60px] h-[40px] text-white p-3 rounded bg-brown hover:bg-brown-500" 
           >
+            {/* style={{background:'#9A1750'}} */}
             {t('Book')}
           </button>
         </form>
